@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace CartorioCivil.Servicos
+namespace CartorioCivil.Negocios.Validadores
 {
+
     public class ValidarCPF
     {
         public bool Validar(string cpf)
