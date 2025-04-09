@@ -43,6 +43,7 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -87,6 +88,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Infraestrutura\BancoDeDados\ConexaoDB.cs" />
+    <Compile Include="Infraestrutura\Interfaces\INascimentoDAO.cs" />
+    <Compile Include="Infraestrutura\Interfaces\IRegistroDAO.cs" />
+    <Compile Include="Infraestrutura\RegistrosDAO\CasamentoDAO.cs" />
+    <Compile Include="Infraestrutura\RegistrosDAO\ConjugueDAO.cs" />
+    <Compile Include="Infraestrutura\RegistrosDAO\NascimentoDAO.cs" />
+    <Compile Include="Infraestrutura\RegistrosDAO\ObitoDAO.cs" />
+    <Compile Include="Negocios\Validadores\ValidarCPF.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,12 +124,8 @@
   <ItemGroup>
     <Folder Include="Apresentacao\Forms\" />
     <Folder Include="Apresentacao\Relatorios\" />
-    <Folder Include="Infraestrutura\BancoDeDados\" />
-    <Folder Include="Infraestrutura\Interfaces\" />
-    <Folder Include="Infraestrutura\RegistrosDAO\" />
     <Folder Include="Negocios\Interfaces\" />
     <Folder Include="Negocios\Servicos\" />
-    <Folder Include="Negocios\Validadores\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

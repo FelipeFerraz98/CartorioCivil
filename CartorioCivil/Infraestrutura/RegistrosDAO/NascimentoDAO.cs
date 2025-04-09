@@ -134,5 +134,20 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
 
             return await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
         }
+
+        public async Task<List<Nascimento>> ObterPorNomeAsync(string nome)
+        {
+            string consulta = @"
+                SELECT * FROM Nascimento 
+                WHERE NomeRegistrado = @Nome";
+
+            var parametros = new Dictionary<string, object>
+            {
+                { "@Nome", nome }
+            };
+
+            return await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
+
+        }
     }
 }
