@@ -7,12 +7,12 @@ using System.Configuration;
 
 namespace CartorioCivil.Infraestrutura.BancoDeDados
 {
-    public class ConexaoBanco : IDisposable
+    public class ConexaoDB : IDisposable
     {
         private readonly string _stringDeConexao;
         private NpgsqlConnection _conexao;
 
-        public ConexaoBanco()
+        public ConexaoDB()
         {
             _stringDeConexao = ConfigurationManager.ConnectionStrings["PostgreSQLConexao"]?.ConnectionString
                                ?? throw new InvalidOperationException("String de conexão não encontrada.");
