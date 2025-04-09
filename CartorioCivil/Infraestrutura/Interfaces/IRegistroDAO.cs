@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Npgsql;
 
 namespace CartorioCivil.Infraestrutura.Interfaces
 {
@@ -10,5 +11,6 @@ namespace CartorioCivil.Infraestrutura.Interfaces
         Task AtualizarAsync(T entidade);
         Task<List<T>> ObterTodosAsync();
         Task<T> ObterPorIdAsync(int id);
+        T MapearParametros(NpgsqlDataReader leitor);
     }
 }
