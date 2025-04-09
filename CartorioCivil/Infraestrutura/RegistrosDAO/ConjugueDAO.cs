@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace CartorioCivil.Infraestrutura.RegistrosDAO
 {
-    public class ConjugeDAO : IRegistroDAO<Conjuge>
+    public class ConjugeDAO : IConjugueDAO
     {
         private readonly ConexaoDB _conexaoBanco;
 
@@ -111,6 +111,35 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 CpfnPai = leitor.GetString(leitor.GetOrdinal("CpfnPai")),
                 CpfnMae = leitor.GetString(leitor.GetOrdinal("CpfnMae"))
             };
+        }
+
+        public async Task<List<Conjuge>> ObterPorNomeAsync(string nome)
+        {
+            string consulta = @"
+                SELECT * FROM Conjuge 
+                WHERE Nome = @Nome";
+
+            var parametros = new Dictionary<string, object>
+            {
+                { "@Nome", nome }
+            };
+
+            return await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
+        }
+
+        public async Task<Conjuge> ObterPorCpfAsync(string cpf)
+        {
+            string consulta = @"
+                SELECT * FROM Conjuge 
+                WHERE CPF = @CPF";
+
+            var parametros = new Dictionary<string, object>
+            {
+                { "@CPF", cpf }
+            };
+
+            var resultados = await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
+            return resultados.FirstOrDefault();
         }
     }
 }
