@@ -13,10 +13,7 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
     {
         private readonly ConexaoDB _conexaoBanco;
 
-        public ObitoDAO()
-        {
-            _conexaoBanco = new ConexaoDB();
-        }
+        public ObitoDAO() => _conexaoBanco = new ConexaoDB();
 
         public async Task AdicionarAsync(Obito obito)
         {
