@@ -7,7 +7,7 @@ using CartorioCivil.Infraestrutura.Interfaces;
 using CartorioCivil.Infraestrutura.BancoDeDados;
 using System.Linq;
 
-namespace CartorioCivil.Infraestrutura.RegristrosDAO
+namespace CartorioCivil.Infraestrutura.RegistrosDAO
 {
     public class NascimentoDAO : INascimentoDAO
     {
