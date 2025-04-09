@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace CartorioCivil.Infraestrutura.RegistrosDAO
 {
-    public class ObitoDAO : IRegistroDAO<Obito>
+    public class ObitoDAO : IObitoDAO
     {
         private readonly ConexaoDB _conexaoBanco;
 
@@ -112,6 +112,21 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 DataNascimentoPai = leitor.GetDateTime(leitor.GetOrdinal("DataNascimentoPai")),
                 DataNascimentoMae = leitor.GetDateTime(leitor.GetOrdinal("DataNascimentoMae"))
             };
+        }
+
+        public async Task<List<Obito>> ObterPorNomeAsync(string nome)
+        {
+            string consulta = @"
+                SELECT * FROM Obito 
+                WHERE NomeFalecido = @Nome";
+
+            var parametros = new Dictionary<string, object>
+            {
+                { "@Nome", nome }
+            };
+
+            return await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
+
         }
     }
 }
