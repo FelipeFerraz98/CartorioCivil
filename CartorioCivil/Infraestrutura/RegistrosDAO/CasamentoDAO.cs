@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace CartorioCivil.Infraestrutura.RegistrosDAO
 {
-    public class CasamentoDAO : IRegistroDAO<Casamento>
+    public class CasamentoDAO : ICasamentoDAO
     {
         private readonly ConexaoDB _conexaoBanco;
 
@@ -96,5 +96,22 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 IdConjuge2 = leitor.GetInt32(leitor.GetOrdinal("IdConjuge2"))
             };
         }
+
+        public async Task<Casamento> ObterPorIdConjugueAsync(string idConjuge)
+        {
+                string consulta = @"
+                    SELECT * FROM Casamento
+                    WHERE IdConjuge1 = @IdConjuge
+                       OR IdConjuge2 = @IdConjuge";
+
+                var parametros = new Dictionary<string, object>
+                {
+                    { "@IdConjuge", idConjuge }
+                };
+
+            var resultados = await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
+            return resultados.FirstOrDefault();
+        }
+
     }
 }
