@@ -15,11 +15,12 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
 
         public ObitoDAO() => _conexaoBanco = new ConexaoDB();
 
-        public async Task AdicionarAsync(Obito obito)
+        public async Task<int> AdicionarAsync(Obito obito)
         {
             string consulta = @"
                 INSERT INTO Obito (DataRegistro, DataObito, NomeFalecido, DataNascimento, NomePai, NomeMae, DataNascimentoPai, DataNascimentoMae)
-                VALUES (@DataRegistro, @DataObito, @NomeFalecido, @DataNascimento, @NomePai, @NomeMae, @DataNascimentoPai, @DataNascimentoMae)";
+                VALUES (@DataRegistro, @DataObito, @NomeFalecido, @DataNascimento, @NomePai, @NomeMae, @DataNascimentoPai, @DataNascimentoMae)
+                RETURNING Id";
 
             var parametros = new Dictionary<string, object>
             {
@@ -33,7 +34,7 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 { "@DataNascimentoMae", obito.DataNascimentoMae }
             };
 
-            await _conexaoBanco.ExecutarComandoAsync(consulta, parametros);
+            return await _conexaoBanco.ExecutarComandoComRetornoAsync<int>(consulta, parametros);
         }
 
         public async Task AtualizarAsync(Obito obito)
