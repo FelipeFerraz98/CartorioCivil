@@ -45,6 +45,20 @@ namespace CartorioCivil.Infraestrutura.BancoDeDados
                 await comando.ExecuteNonQueryAsync();
             }
         }
+        public async Task<T> ExecutarComandoComRetornoAsync<T>(string consulta, Dictionary<string, object> parametros = null)
+        {
+            await AbrirConexaoAsync();
+
+            using (var comando = new NpgsqlCommand(consulta, _conexao))
+            {
+                AdicionarParametros(comando, parametros);
+
+                var resultado = await comando.ExecuteScalarAsync();
+
+                return resultado != DBNull.Value ? (T)Convert.ChangeType(resultado, typeof(T)) : default;
+            }
+        }
+
 
         public async Task<List<T>> ExecutarConsultaAsync<T>(string consulta, Func<NpgsqlDataReader, T> funcaoMapeamento, Dictionary<string, object> parametros = null)
         {
