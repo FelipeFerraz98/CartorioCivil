@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace CartorioCivil.Negocios.Validadores
 {
 
-    public class ValidarCPF
+    public static class ValidarCPF
     {
-        public bool Validar(string cpf)
+        public static bool Validar(string cpf)
         {
             cpf = cpf?.Replace(".", "").Replace("-", "");
 

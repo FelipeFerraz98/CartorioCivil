@@ -6,7 +6,7 @@ namespace CartorioCivil.Infraestrutura.Interfaces
 {
     public interface IRegistroDAO<T>
     {
-        Task AdicionarAsync(T entidade);
+        Task<int> AdicionarAsync(T entidade);
         Task RemoverAsync(int id);
         Task AtualizarAsync(T entidade);
         Task<List<T>> ObterTodosAsync();

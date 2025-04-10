@@ -12,16 +12,14 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
     {
         private readonly ConexaoDB _conexaoBanco;
 
-        public ConjugeDAO()
-        {
-            _conexaoBanco = new ConexaoDB();
-        }
+        public ConjugeDAO() => _conexaoBanco = new ConexaoDB();
 
-        public async Task AdicionarAsync(Conjuge conjuge)
+        public async Task<int> AdicionarAsync(Conjuge conjuge)
         {
             string consulta = @"
                 INSERT INTO Conjuge (Nome, CPF, NomePai, NomeMae, DataNascimentoPai, DataNascimentoMae, CpfnPai, CpfnMae)
-                VALUES (@Nome, @CPF, @NomePai, @NomeMae, @DataNascimentoPai, @DataNascimentoMae, @CpfnPai, @CpfnMae)";
+                VALUES (@Nome, @CPF, @NomePai, @NomeMae, @DataNascimentoPai, @DataNascimentoMae, @CpfnPai, @CpfnMae)
+                RETURNING Id"; 
 
             var parametros = new Dictionary<string, object>
             {
@@ -35,8 +33,9 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 { "@CpfnMae", conjuge.CpfnMae }
             };
 
-            await _conexaoBanco.ExecutarComandoAsync(consulta, parametros);
+            return await _conexaoBanco.ExecutarComandoComRetornoAsync<int>(consulta, parametros);
         }
+
 
         public async Task AtualizarAsync(Conjuge conjuge)
         {

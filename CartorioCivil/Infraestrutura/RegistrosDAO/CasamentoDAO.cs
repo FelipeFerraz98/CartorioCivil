@@ -12,16 +12,14 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
     {
         private readonly ConexaoDB _conexaoBanco;
 
-        public CasamentoDAO()
-        {
-            _conexaoBanco = new ConexaoDB();
-        }
+        public CasamentoDAO() => _conexaoBanco = new ConexaoDB();
 
-        public async Task AdicionarAsync(Casamento casamento)
+        public async Task<int> AdicionarAsync(Casamento casamento)
         {
             string consulta = @"
                 INSERT INTO Casamento (DataRegistro, DataCasamento, IdConjuge1, IdConjuge2)
-                VALUES (@DataRegistro, @DataCasamento, @IdConjuge1, @IdConjuge2)";
+                VALUES (@DataRegistro, @DataCasamento, @IdConjuge1, @IdConjuge2)
+                RETURNING Id"; 
 
             var parametros = new Dictionary<string, object>
             {
@@ -31,8 +29,9 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 { "@IdConjuge2", casamento.IdConjuge2 }
             };
 
-            await _conexaoBanco.ExecutarComandoAsync(consulta, parametros);
+            return await _conexaoBanco.ExecutarComandoComRetornoAsync<int>(consulta, parametros);
         }
+
 
         public async Task AtualizarAsync(Casamento casamento)
         {
@@ -97,7 +96,7 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
             };
         }
 
-        public async Task<Casamento> ObterPorIdConjugueAsync(string idConjuge)
+        public async Task<Casamento> ObterPorIdConjugueAsync(int idConjuge)
         {
                 string consulta = @"
                     SELECT * FROM Casamento
