@@ -89,13 +89,21 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Infraestrutura\BancoDeDados\ConexaoDB.cs" />
+    <Compile Include="Infraestrutura\Interfaces\ICasamentoDAO.cs" />
+    <Compile Include="Infraestrutura\Interfaces\IConjugueDAO.cs" />
     <Compile Include="Infraestrutura\Interfaces\INascimentoDAO.cs" />
+    <Compile Include="Infraestrutura\Interfaces\IObitoDAO.cs" />
     <Compile Include="Infraestrutura\Interfaces\IRegistroDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\CasamentoDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\ConjugueDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\NascimentoDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\ObitoDAO.cs" />
+    <Compile Include="Negocios\Servicos\CasamentoServico.cs" />
+    <Compile Include="Negocios\Servicos\NascimentoServico.cs" />
+    <Compile Include="Negocios\Servicos\ObitoServico.cs" />
+    <Compile Include="Negocios\Servicos\RegistroServicoBase.cs" />
     <Compile Include="Negocios\Validadores\ValidarCPF.cs" />
+    <Compile Include="Negocios\Validadores\ValidarEntidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -124,8 +132,6 @@
   <ItemGroup>
     <Folder Include="Apresentacao\Forms\" />
     <Folder Include="Apresentacao\Relatorios\" />
-    <Folder Include="Negocios\Interfaces\" />
-    <Folder Include="Negocios\Servicos\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
