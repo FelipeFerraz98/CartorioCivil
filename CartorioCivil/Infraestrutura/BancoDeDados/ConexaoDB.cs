@@ -10,7 +10,7 @@ namespace CartorioCivil.Infraestrutura.BancoDeDados
     public class ConexaoDB : IDisposable
     {
         private readonly string _stringDeConexao;
-        private NpgsqlConnection _conexao;
+        private readonly NpgsqlConnection _conexao;
 
         public ConexaoDB()
         {

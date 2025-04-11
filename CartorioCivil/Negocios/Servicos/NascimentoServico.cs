@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CartorioCivil.Entidades;
+using CartorioCivil.Infraestrutura.Interfaces;
 using CartorioCivil.Infraestrutura.RegistrosDAO;
 using CartorioCivil.Negocios.Validadores;
 
@@ -9,9 +10,11 @@ namespace CartorioCivil.Negocios.Servicos
 {
     public class NascimentoServico : RegistroServicoBase<Nascimento>
     {
-        private readonly NascimentoDAO _nascimentoDAO;
+        private readonly INascimentoDAO _nascimentoDAO;
 
         public NascimentoServico() => _nascimentoDAO = new NascimentoDAO();
+
+        public NascimentoServico(INascimentoDAO nascimentoDAO) => _nascimentoDAO = nascimentoDAO;
 
         public override async Task<int> AdicionarAsync(Nascimento nascimento, params object[] parametros)
         {

@@ -4,9 +4,9 @@ using CartorioCivil.Entidades;
 
 namespace CartorioCivil.Infraestrutura.Interfaces
 {
-    public interface IConjugueDAO : IRegistroDAO<Conjuge>
+    public interface IConjugueDAO : IRegistroDAO<Conjugue>
     {
-        Task<List<Conjuge>> ObterPorNomeAsync(string nome);
-        Task<Conjuge> ObterPorCpfAsync(string cpf);
+        Task<List<Conjugue>> ObterPorNomeAsync(string nome);
+        Task<Conjugue> ObterPorCpfAsync(string cpf);
     }
 }
