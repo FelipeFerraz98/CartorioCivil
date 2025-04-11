@@ -8,39 +8,38 @@ using System.Linq;
 
 namespace CartorioCivil.Infraestrutura.RegistrosDAO
 {
-    public class ConjugeDAO : IConjugueDAO
+    public class ConjugueDAO : IConjugueDAO
     {
         private readonly ConexaoDB _conexaoBanco;
 
-        public ConjugeDAO() => _conexaoBanco = new ConexaoDB();
+        public ConjugueDAO() => _conexaoBanco = new ConexaoDB();
 
-        public async Task<int> AdicionarAsync(Conjuge conjuge)
+        public async Task<int> AdicionarAsync(Conjugue conjugue)
         {
             string consulta = @"
-                INSERT INTO Conjuge (Nome, CPF, NomePai, NomeMae, DataNascimentoPai, DataNascimentoMae, CpfnPai, CpfnMae)
+                INSERT INTO Conjugue (Nome, CPF, NomePai, NomeMae, DataNascimentoPai, DataNascimentoMae, CpfnPai, CpfnMae)
                 VALUES (@Nome, @CPF, @NomePai, @NomeMae, @DataNascimentoPai, @DataNascimentoMae, @CpfnPai, @CpfnMae)
                 RETURNING Id"; 
 
             var parametros = new Dictionary<string, object>
             {
-                { "@Nome", conjuge.Nome },
-                { "@CPF", conjuge.CPF },
-                { "@NomePai", conjuge.NomePai },
-                { "@NomeMae", conjuge.NomeMae },
-                { "@DataNascimentoPai", conjuge.DataNascimentoPai },
-                { "@DataNascimentoMae", conjuge.DataNascimentoMae },
-                { "@CpfnPai", conjuge.CpfnPai },
-                { "@CpfnMae", conjuge.CpfnMae }
+                { "@Nome", conjugue.Nome },
+                { "@CPF", conjugue.CPF },
+                { "@NomePai", conjugue.NomePai },
+                { "@NomeMae", conjugue.NomeMae },
+                { "@DataNascimentoPai", conjugue.DataNascimentoPai },
+                { "@DataNascimentoMae", conjugue.DataNascimentoMae },
+                { "@CpfnPai", conjugue.CpfnPai },
+                { "@CpfnMae", conjugue.CpfnMae }
             };
 
             return await _conexaoBanco.ExecutarComandoComRetornoAsync<int>(consulta, parametros);
         }
 
-
-        public async Task AtualizarAsync(Conjuge conjuge)
+        public async Task AtualizarAsync(Conjugue conjugue)
         {
             string consulta = @"
-                UPDATE Conjuge
+                UPDATE Conjugue
                 SET Nome = @Nome,
                     CPF = @CPF,
                     NomePai = @NomePai,
@@ -53,15 +52,15 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
 
             var parametros = new Dictionary<string, object>
             {
-                { "@Id", conjuge.Id },
-                { "@Nome", conjuge.Nome },
-                { "@CPF", conjuge.CPF },
-                { "@NomePai", conjuge.NomePai },
-                { "@NomeMae", conjuge.NomeMae },
-                { "@DataNascimentoPai", conjuge.DataNascimentoPai },
-                { "@DataNascimentoMae", conjuge.DataNascimentoMae },
-                { "@CpfnPai", conjuge.CpfnPai },
-                { "@CpfnMae", conjuge.CpfnMae }
+                { "@Id", conjugue.Id },
+                { "@Nome", conjugue.Nome },
+                { "@CPF", conjugue.CPF },
+                { "@NomePai", conjugue.NomePai },
+                { "@NomeMae", conjugue.NomeMae },
+                { "@DataNascimentoPai", conjugue.DataNascimentoPai },
+                { "@DataNascimentoMae", conjugue.DataNascimentoMae },
+                { "@CpfnPai", conjugue.CpfnPai },
+                { "@CpfnMae", conjugue.CpfnMae }
             };
 
             await _conexaoBanco.ExecutarComandoAsync(consulta, parametros);
@@ -69,7 +68,7 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
 
         public async Task RemoverAsync(int id)
         {
-            string consulta = "DELETE FROM Conjuge WHERE Id = @Id";
+            string consulta = "DELETE FROM Conjugue WHERE Id = @Id";
             var parametros = new Dictionary<string, object>
             {
                 { "@Id", id }
@@ -78,15 +77,15 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
             await _conexaoBanco.ExecutarComandoAsync(consulta, parametros);
         }
 
-        public async Task<List<Conjuge>> ObterTodosAsync()
+        public async Task<List<Conjugue>> ObterTodosAsync()
         {
-            string consulta = "SELECT * FROM Conjuge";
+            string consulta = "SELECT * FROM Conjugue";
             return await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros);
         }
 
-        public async Task<Conjuge> ObterPorIdAsync(int id)
+        public async Task<Conjugue> ObterPorIdAsync(int id)
         {
-            string consulta = "SELECT * FROM Conjuge WHERE Id = @Id";
+            string consulta = "SELECT * FROM Conjugue WHERE Id = @Id";
             var parametros = new Dictionary<string, object>
             {
                 { "@Id", id }
@@ -96,9 +95,9 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
             return resultados.FirstOrDefault();
         }
 
-        public Conjuge MapearParametros(NpgsqlDataReader leitor)
+        public Conjugue MapearParametros(NpgsqlDataReader leitor)
         {
-            return new Conjuge
+            return new Conjugue
             {
                 Id = leitor.GetInt32(leitor.GetOrdinal("Id")),
                 Nome = leitor.GetString(leitor.GetOrdinal("Nome")),
@@ -112,10 +111,10 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
             };
         }
 
-        public async Task<List<Conjuge>> ObterPorNomeAsync(string nome)
+        public async Task<List<Conjugue>> ObterPorNomeAsync(string nome)
         {
             string consulta = @"
-                SELECT * FROM Conjuge 
+                SELECT * FROM Conjugue 
                 WHERE Nome = @Nome";
 
             var parametros = new Dictionary<string, object>
@@ -126,10 +125,10 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
             return await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
         }
 
-        public async Task<Conjuge> ObterPorCpfAsync(string cpf)
+        public async Task<Conjugue> ObterPorCpfAsync(string cpf)
         {
             string consulta = @"
-                SELECT * FROM Conjuge 
+                SELECT * FROM Conjugue 
                 WHERE CPF = @CPF";
 
             var parametros = new Dictionary<string, object>

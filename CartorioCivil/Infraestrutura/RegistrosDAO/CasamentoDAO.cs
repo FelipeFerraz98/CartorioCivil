@@ -17,16 +17,16 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
         public async Task<int> AdicionarAsync(Casamento casamento)
         {
             string consulta = @"
-                INSERT INTO Casamento (DataRegistro, DataCasamento, IdConjuge1, IdConjuge2)
-                VALUES (@DataRegistro, @DataCasamento, @IdConjuge1, @IdConjuge2)
+                INSERT INTO Casamento (DataRegistro, DataCasamento, IdConjugue1, IdConjugue2)
+                VALUES (@DataRegistro, @DataCasamento, @IdConjugue1, @IdConjugue2)
                 RETURNING Id"; 
 
             var parametros = new Dictionary<string, object>
             {
                 { "@DataRegistro", casamento.DataRegistro },
                 { "@DataCasamento", casamento.DataCasamento },
-                { "@IdConjuge1", casamento.IdConjuge1 },
-                { "@IdConjuge2", casamento.IdConjuge2 }
+                { "@IdConjugue1", casamento.IdConjugue1 },
+                { "@IdConjugue2", casamento.IdConjugue2 }
             };
 
             return await _conexaoBanco.ExecutarComandoComRetornoAsync<int>(consulta, parametros);
@@ -39,8 +39,8 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 UPDATE Casamento
                 SET DataRegistro = @DataRegistro,
                     DataCasamento = @DataCasamento,
-                    IdConjuge1 = @IdConjuge1,
-                    IdConjuge2 = @IdConjuge2
+                    IdConjugue1 = @IdConjugue1,
+                    IdConjugue2 = @IdConjugue2
                 WHERE Id = @Id";
 
             var parametros = new Dictionary<string, object>
@@ -48,8 +48,8 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 { "@Id", casamento.Id },
                 { "@DataRegistro", casamento.DataRegistro },
                 { "@DataCasamento", casamento.DataCasamento },
-                { "@IdConjuge1", casamento.IdConjuge1 },
-                { "@IdConjuge2", casamento.IdConjuge2 }
+                { "@IdConjugue1", casamento.IdConjugue1 },
+                { "@IdConjugue2", casamento.IdConjugue2 }
             };
 
             await _conexaoBanco.ExecutarComandoAsync(consulta, parametros);
@@ -91,21 +91,21 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 Id = leitor.GetInt32(leitor.GetOrdinal("Id")),
                 DataRegistro = leitor.GetDateTime(leitor.GetOrdinal("DataRegistro")),
                 DataCasamento = leitor.GetDateTime(leitor.GetOrdinal("DataCasamento")),
-                IdConjuge1 = leitor.GetInt32(leitor.GetOrdinal("IdConjuge1")),
-                IdConjuge2 = leitor.GetInt32(leitor.GetOrdinal("IdConjuge2"))
+                IdConjugue1 = leitor.GetInt32(leitor.GetOrdinal("IdConjugue1")),
+                IdConjugue2 = leitor.GetInt32(leitor.GetOrdinal("IdConjugue2"))
             };
         }
 
-        public async Task<Casamento> ObterPorIdConjugueAsync(int idConjuge)
+        public async Task<Casamento> ObterPorIdConjugueAsync(int idConjugue)
         {
                 string consulta = @"
                     SELECT * FROM Casamento
-                    WHERE IdConjuge1 = @IdConjuge
-                       OR IdConjuge2 = @IdConjuge";
+                    WHERE IdConjugue1 = @IdConjugue
+                       OR IdConjugue2 = @IdConjugue";
 
                 var parametros = new Dictionary<string, object>
                 {
-                    { "@IdConjuge", idConjuge }
+                    { "@IdConjugue", idConjugue }
                 };
 
             var resultados = await _conexaoBanco.ExecutarConsultaAsync(consulta, MapearParametros, parametros);
