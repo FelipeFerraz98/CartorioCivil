@@ -78,6 +78,12 @@ namespace CartorioCivil.Negocios.Servicos
 
             if (nascimento.DataRegistro < nascimento.DataNascimento)
                 throw new ArgumentException("A data de registro não pode ser anterior à data de nascimento.");
+
+            if (nascimento.DataNascimentoMae >= nascimento.DataNascimento)
+                throw new ArgumentException("A data de nascimento da mãe não pode ser posterior ou igual à do nascido.");
+
+            if (nascimento.DataNascimentoPai >= nascimento.DataNascimento)
+                throw new ArgumentException("A data de nascimento do pai não pode ser posterior ou igual à do nascido.");
         }
 
         private void ValidarCPFs(Nascimento nascimento)
