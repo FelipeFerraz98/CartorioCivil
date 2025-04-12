@@ -14,7 +14,7 @@ namespace CartorioCivil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormNascimento());
+            Application.Run(new FormObito());
         }
     }
 }

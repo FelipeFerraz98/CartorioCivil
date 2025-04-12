@@ -78,11 +78,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apresentacao\Forms\FormCasamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Forms\FormCasamento.Designer.cs">
+      <DependentUpon>FormCasamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Forms\FormNascimento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Apresentacao\Forms\FormNascimento.Designer.cs">
       <DependentUpon>FormNascimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Apresentacao\Forms\FormObito.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Forms\FormObito.Designer.cs">
+      <DependentUpon>FormObito.cs</DependentUpon>
     </Compile>
     <Compile Include="Entidades\Casamento.cs" />
     <Compile Include="Entidades\Conjuge.cs" />
@@ -106,8 +118,14 @@
     <Compile Include="Negocios\Validadores\ValidarEntidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Apresentacao\Forms\FormCasamento.resx">
+      <DependentUpon>FormCasamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Forms\FormNascimento.resx">
       <DependentUpon>FormNascimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Forms\FormObito.resx">
+      <DependentUpon>FormObito.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
