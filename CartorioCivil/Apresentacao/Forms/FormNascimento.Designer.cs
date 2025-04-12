@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.listViewResultados = new System.Windows.Forms.ListView();
+            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Pai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Mãe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Nascimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscaNome = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -52,10 +56,6 @@
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.dtNascimentoPai = new System.Windows.Forms.DateTimePicker();
             this.dtNascimentoMae = new System.Windows.Forms.DateTimePicker();
-            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Pai = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Mãe = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Nascimento = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listViewResultados
@@ -65,6 +65,7 @@
             this.Pai,
             this.Mãe,
             this.Nascimento});
+            this.listViewResultados.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewResultados.HideSelection = false;
             this.listViewResultados.Location = new System.Drawing.Point(56, 62);
             this.listViewResultados.Name = "listViewResultados";
@@ -73,6 +74,26 @@
             this.listViewResultados.UseCompatibleStateImageBehavior = false;
             this.listViewResultados.View = System.Windows.Forms.View.Details;
             this.listViewResultados.SelectedIndexChanged += new System.EventHandler(this.listViewResultados_SelectedIndexChanged);
+            // 
+            // Nome
+            // 
+            this.Nome.Text = "Nome";
+            this.Nome.Width = 104;
+            // 
+            // Pai
+            // 
+            this.Pai.Text = "Pai";
+            this.Pai.Width = 113;
+            // 
+            // Mãe
+            // 
+            this.Mãe.Text = "Mãe";
+            this.Mãe.Width = 115;
+            // 
+            // Nascimento
+            // 
+            this.Nascimento.Text = "Nascimento";
+            this.Nascimento.Width = 120;
             // 
             // btnBuscar
             // 
@@ -265,26 +286,6 @@
             this.dtNascimentoMae.Name = "dtNascimentoMae";
             this.dtNascimentoMae.Size = new System.Drawing.Size(200, 20);
             this.dtNascimentoMae.TabIndex = 25;
-            // 
-            // Nome
-            // 
-            this.Nome.Text = "Nome";
-            this.Nome.Width = 102;
-            // 
-            // Pai
-            // 
-            this.Pai.Text = "Pai";
-            this.Pai.Width = 113;
-            // 
-            // Mãe
-            // 
-            this.Mãe.Text = "Mãe";
-            this.Mãe.Width = 101;
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.Text = "Nascimento";
-            this.Nascimento.Width = 110;
             // 
             // FormNascimento
             // 
