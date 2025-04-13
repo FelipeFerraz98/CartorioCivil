@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CartorioCivil.Entidades;
 using CartorioCivil.Negocios.Servicos;
@@ -32,7 +26,54 @@ namespace CartorioCivil.Apresentacao.Forms
         }
 
 
-        private async void btnAdicionar_Click(object sender, EventArgs e)
+        private void PreencherListView(List<Nascimento> nascimentos)
+        {
+            listViewResultados.Items.Clear();
+
+            foreach (var nascimento in nascimentos)
+            {
+                var item = new ListViewItem(nascimento.NomeRegistrado);
+                item.SubItems.Add(nascimento.NomePai);
+                item.SubItems.Add(nascimento.NomeMae);
+                item.SubItems.Add(nascimento.DataNascimento.ToShortDateString());
+
+                item.Tag = nascimento.Id;
+                listViewResultados.Items.Add(item);
+            }
+        }
+
+        private void LimparForm()
+        {
+            txtNome.Clear();
+            txtNomePai.Clear();
+            txtNomeMae.Clear();
+            txtCpfPai.Clear();
+            txtCpfMae.Clear();
+            txtBuscaNome.Clear();
+            dtNascimento.Value = DateTime.Today;
+            dtRegistro.Value = DateTime.Today;
+            dtNascimentoPai.Value = DateTime.Today;
+            dtNascimentoMae.Value = DateTime.Today;
+            listViewResultados.Items.Clear();
+            _nascimentoSelecionado = null;
+            AtualizarBotoes();
+        }
+
+        private async void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                var nome = txtBuscaNome.Text.Trim();
+                var nascimentos = await _nascimentoServico.ObterPorNomeAsync(nome);
+                PreencherListView(nascimentos);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -85,7 +126,7 @@ namespace CartorioCivil.Apresentacao.Forms
             }
         }
 
-        private async void btnExcluir_Click(object sender, EventArgs e)
+        private async void btnExcluir_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -98,19 +139,8 @@ namespace CartorioCivil.Apresentacao.Forms
                 MessageBox.Show(ex.Message);
             }
         }
-        private async void btnBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var nome = txtBuscaNome.Text.Trim();
-                var nascimentos = await _nascimentoServico.ObterPorNomeAsync(nome);
-                PreencherListView(nascimentos);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+
+        private void btnLimpar_Click_1(object sender, EventArgs e) => LimparForm();
 
         private async void listViewResultados_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -136,41 +166,5 @@ namespace CartorioCivil.Apresentacao.Forms
                 AtualizarBotoes();
             }
         }
-
-        private void PreencherListView(List<Nascimento> nascimentos)
-        {
-            listViewResultados.Items.Clear();
-
-            foreach (var nascimento in nascimentos)
-            {
-                var item = new ListViewItem(nascimento.NomeRegistrado);
-                item.SubItems.Add(nascimento.NomePai);
-                item.SubItems.Add(nascimento.NomeMae);
-                item.SubItems.Add(nascimento.DataNascimento.ToShortDateString());
-
-                item.Tag = nascimento.Id;
-                listViewResultados.Items.Add(item);
-            }
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e) => LimparForm();
-
-        private void LimparForm()
-        {
-            txtNome.Clear();
-            txtNomePai.Clear();
-            txtNomeMae.Clear();
-            txtCpfPai.Clear();
-            txtCpfMae.Clear();
-            txtBuscaNome.Clear();
-            dtNascimento.Value = DateTime.Today;
-            dtRegistro.Value = DateTime.Today;
-            dtNascimentoPai.Value = DateTime.Today;
-            dtNascimentoMae.Value = DateTime.Today;
-            listViewResultados.Items.Clear();
-            _nascimentoSelecionado = null;
-            AtualizarBotoes();
-        }
-
     }
 }
