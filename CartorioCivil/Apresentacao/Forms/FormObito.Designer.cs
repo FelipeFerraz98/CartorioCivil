@@ -447,7 +447,7 @@
             this.MaximizeBox = false;
             this.Name = "FormObito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormObito";
+            this.Text = "Obito";
             this.ResumeLayout(false);
             this.PerformLayout();
 

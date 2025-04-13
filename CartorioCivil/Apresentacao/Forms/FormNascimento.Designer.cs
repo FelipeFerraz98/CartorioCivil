@@ -63,6 +63,8 @@
             this.dtInicio = new System.Windows.Forms.DateTimePicker();
             this.dtFinal = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -445,7 +447,7 @@
             this.btnRelatorio.Name = "btnRelatorio";
             this.btnRelatorio.Size = new System.Drawing.Size(89, 27);
             this.btnRelatorio.TabIndex = 112;
-            this.btnRelatorio.Text = "Relatório";
+            this.btnRelatorio.Text = "Gerar";
             this.btnRelatorio.UseVisualStyleBackColor = false;
             this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
@@ -483,9 +485,29 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label1.Location = new System.Drawing.Point(673, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 15);
+            this.label1.Size = new System.Drawing.Size(79, 15);
             this.label1.TabIndex = 115;
-            this.label1.Text = "Data de registro";
+            this.label1.Text = "Data de Inicio";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label2.Location = new System.Drawing.Point(768, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 15);
+            this.label2.TabIndex = 116;
+            this.label2.Text = "Data Final";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label5.Location = new System.Drawing.Point(652, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(224, 21);
+            this.label5.TabIndex = 117;
+            this.label5.Text = "Gerar Relatorio de Nascimento";
             // 
             // FormNascimento
             // 
@@ -493,6 +515,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(253)))), ((int)(((byte)(251)))));
             this.ClientSize = new System.Drawing.Size(961, 498);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtFinal);
             this.Controls.Add(this.dtInicio);
@@ -573,5 +597,7 @@
         private System.Windows.Forms.DateTimePicker dtInicio;
         private System.Windows.Forms.DateTimePicker dtFinal;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
     }
 }

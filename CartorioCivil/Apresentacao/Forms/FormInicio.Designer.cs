@@ -105,7 +105,7 @@
             this.MaximizeBox = false;
             this.Name = "FormInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormInicio";
+            this.Text = "Inicio";
             this.ResumeLayout(false);
 
         }

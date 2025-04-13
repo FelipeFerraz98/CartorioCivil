@@ -828,7 +828,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCasamento";
+            this.Text = "Casamento";
             this.ResumeLayout(false);
             this.PerformLayout();
 
