@@ -41,8 +41,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Maria Silva",
                 DataNascimentoPai = new DateTime(1950, 5, 10), 
                 DataNascimentoMae = new DateTime(1955, 8, 20), 
-                CpfnPai = "123.456.789-00", 
-                CpfnMae = "987.654.321-11" 
+                CpfPai = "123.456.789-00", 
+                CpfMae = "987.654.321-11" 
             };
 
 
@@ -54,8 +54,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Lucia Pereira",
                 DataNascimentoPai = new DateTime(1952, 3, 14), 
                 DataNascimentoMae = new DateTime(1957, 9, 18), 
-                CpfnPai = "321.654.987-00", 
-                CpfnMae = "654.987.123-11"
+                CpfPai = "321.654.987-00", 
+                CpfMae = "654.987.123-11"
             };
 
 
@@ -92,8 +92,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Maria Silva",
                 DataNascimentoPai = new DateTime(1950, 5, 10), 
                 DataNascimentoMae = new DateTime(1955, 8, 20), 
-                CpfnPai = "123.456.789-00", 
-                CpfnMae = "987.654.321-11" 
+                CpfPai = "123.456.789-00", 
+                CpfMae = "987.654.321-11" 
             };
 
 
@@ -106,8 +106,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Lucia Pereira",
                 DataNascimentoPai = new DateTime(1952, 3, 14),
                 DataNascimentoMae = new DateTime(1957, 9, 18), 
-                CpfnPai = "321.654.987-00", 
-                CpfnMae = "654.987.123-11"
+                CpfPai = "321.654.987-00", 
+                CpfMae = "654.987.123-11"
             };
 
             var casamento = new Casamento
@@ -138,8 +138,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Maria Silva",
                 DataNascimentoPai = new DateTime(1950, 5, 10),
                 DataNascimentoMae = new DateTime(1955, 8, 20),
-                CpfnPai = "123.456.789-00",
-                CpfnMae = "987.654.321-11"
+                CpfPai = "123.456.789-00",
+                CpfMae = "987.654.321-11"
             };
 
             _mockConjugeDAO.Setup(dao => dao.ObterPorCpfAsync("425.493.080-18")).ReturnsAsync(conjuge);

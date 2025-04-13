@@ -36,6 +36,18 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=4.1.13.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.1.13\lib\net461\Npgsql.dll</HintPath>
     </Reference>
@@ -102,6 +114,12 @@
     <Compile Include="Apresentacao\Forms\FormObito.Designer.cs">
       <DependentUpon>FormObito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Forms\FormRelNascimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Forms\FormRelNascimento.Designer.cs">
+      <DependentUpon>FormRelNascimento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\Casamento.cs" />
     <Compile Include="Entidades\Conjuge.cs" />
     <Compile Include="Entidades\Nascimento.cs" />
@@ -116,6 +134,7 @@
     <Compile Include="Infraestrutura\RegistrosDAO\ConjugeDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\NascimentoDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\ObitoDAO.cs" />
+    <Compile Include="Negocios\Relatorios\RelNascimento.cs" />
     <Compile Include="Negocios\Servicos\CasamentoServico.cs" />
     <Compile Include="Negocios\Servicos\NascimentoServico.cs" />
     <Compile Include="Negocios\Servicos\ObitoServico.cs" />
@@ -136,6 +155,10 @@
     <EmbeddedResource Include="Apresentacao\Forms\FormObito.resx">
       <DependentUpon>FormObito.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Forms\FormRelNascimento.resx">
+      <DependentUpon>FormRelNascimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Relatorios\RelNascimento.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -146,6 +169,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="CartorioCivil.Entidades.Nascimento.datasource" />
+    <None Include="CartorioCivil.Negocios.Relatorios.RelNascimento.datasource" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -161,7 +186,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Apresentacao\Relatorios\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>

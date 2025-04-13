@@ -19,9 +19,9 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
         {
             string consulta = @"
                 INSERT INTO Nascimento (DataRegistro, DataNascimento, NomeRegistrado, NomePai, NomeMae, 
-                                         DataNascimentoPai, DataNascimentoMae, CpfnPai, CpfnMae)
+                                         DataNascimentoPai, DataNascimentoMae, CpfPai, CpfMae)
                 VALUES (@DataRegistro, @DataNascimento, @NomeRegistrado, @NomePai, @NomeMae, 
-                        @DataNascimentoPai, @DataNascimentoMae, @CpfnPai, @CpfnMae)
+                        @DataNascimentoPai, @DataNascimentoMae, @CpfPai, @CpfMae)
                         RETURNING Id";
 
             var parametros = new Dictionary<string, object>
@@ -33,8 +33,8 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 { "@NomeMae", nascimento.NomeMae },
                 { "@DataNascimentoPai", nascimento.DataNascimentoPai },
                 { "@DataNascimentoMae", nascimento.DataNascimentoMae },
-                { "@CpfnPai", nascimento.CpfnPai },
-                { "@CpfnMae", nascimento.CpfnMae }
+                { "@CpfPai", nascimento.CpfPai },
+                { "@CpfMae", nascimento.CpfMae }
             };
 
             return await _conexaoBanco.ExecutarComandoComRetornoAsync<int>(consulta, parametros);
@@ -51,8 +51,8 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                     NomeMae = @NomeMae, 
                     DataNascimentoPai = @DataNascimentoPai, 
                     DataNascimentoMae = @DataNascimentoMae, 
-                    CpfnPai = @CpfnPai, 
-                    CpfnMae = @CpfnMae
+                    CpfPai = @CpfPai, 
+                    CpfMae = @CpfMae
                 WHERE Id = @Id";
 
             var parametros = new Dictionary<string, object>
@@ -65,8 +65,8 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 { "@NomeMae", nascimento.NomeMae },
                 { "@DataNascimentoPai", nascimento.DataNascimentoPai },
                 { "@DataNascimentoMae", nascimento.DataNascimentoMae },
-                { "@CpfnPai", nascimento.CpfnPai },
-                { "@CpfnMae", nascimento.CpfnMae }
+                { "@CpfPai", nascimento.CpfPai },
+                { "@CpfMae", nascimento.CpfMae }
             };
 
             await _conexaoBanco.ExecutarComandoAsync(consulta, parametros);
@@ -113,8 +113,8 @@ namespace CartorioCivil.Infraestrutura.RegistrosDAO
                 NomeMae = leitor.GetString(leitor.GetOrdinal("NomeMae")),
                 DataNascimentoPai = leitor.GetDateTime(leitor.GetOrdinal("DataNascimentoPai")),
                 DataNascimentoMae = leitor.GetDateTime(leitor.GetOrdinal("DataNascimentoMae")),
-                CpfnPai = leitor.GetString(leitor.GetOrdinal("CpfnPai")),
-                CpfnMae = leitor.GetString(leitor.GetOrdinal("CpfnMae"))
+                CpfPai = leitor.GetString(leitor.GetOrdinal("CpfPai")),
+                CpfMae = leitor.GetString(leitor.GetOrdinal("CpfMae"))
             };
         }
 
