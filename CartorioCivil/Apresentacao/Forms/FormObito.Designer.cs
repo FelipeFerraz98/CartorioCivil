@@ -56,6 +56,7 @@
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnInicio = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +64,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(33, 12);
+            this.label1.Location = new System.Drawing.Point(22, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 15);
             this.label1.TabIndex = 0;
@@ -73,7 +74,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label2.Location = new System.Drawing.Point(33, 223);
+            this.label2.Location = new System.Drawing.Point(22, 268);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 15);
             this.label2.TabIndex = 1;
@@ -83,7 +84,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label3.Location = new System.Drawing.Point(33, 277);
+            this.label3.Location = new System.Drawing.Point(22, 322);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 15);
             this.label3.TabIndex = 2;
@@ -93,7 +94,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label4.Location = new System.Drawing.Point(33, 331);
+            this.label4.Location = new System.Drawing.Point(22, 376);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 3;
@@ -103,7 +104,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label6.Location = new System.Drawing.Point(257, 223);
+            this.label6.Location = new System.Drawing.Point(246, 268);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 15);
             this.label6.TabIndex = 5;
@@ -113,7 +114,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label7.Location = new System.Drawing.Point(523, 223);
+            this.label7.Location = new System.Drawing.Point(512, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 15);
             this.label7.TabIndex = 6;
@@ -123,7 +124,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label8.Location = new System.Drawing.Point(391, 223);
+            this.label8.Location = new System.Drawing.Point(380, 268);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 15);
             this.label8.TabIndex = 7;
@@ -133,7 +134,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label9.Location = new System.Drawing.Point(257, 277);
+            this.label9.Location = new System.Drawing.Point(246, 322);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(148, 15);
             this.label9.TabIndex = 8;
@@ -143,7 +144,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label10.Location = new System.Drawing.Point(257, 331);
+            this.label10.Location = new System.Drawing.Point(246, 376);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(154, 15);
             this.label10.TabIndex = 9;
@@ -154,7 +155,7 @@
             this.txtBusca.BackColor = System.Drawing.Color.White;
             this.txtBusca.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusca.ForeColor = System.Drawing.Color.DimGray;
-            this.txtBusca.Location = new System.Drawing.Point(34, 30);
+            this.txtBusca.Location = new System.Drawing.Point(23, 75);
             this.txtBusca.Name = "txtBusca";
             this.txtBusca.Size = new System.Drawing.Size(206, 25);
             this.txtBusca.TabIndex = 10;
@@ -165,9 +166,10 @@
             this.dtNascimento.CalendarForeColor = System.Drawing.Color.DimGray;
             this.dtNascimento.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
             this.dtNascimento.CalendarTitleForeColor = System.Drawing.Color.DimGray;
+            this.dtNascimento.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtNascimento.CustomFormat = "dd/MM/yyyy";
             this.dtNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNascimento.Location = new System.Drawing.Point(260, 241);
+            this.dtNascimento.Location = new System.Drawing.Point(249, 286);
             this.dtNascimento.Name = "dtNascimento";
             this.dtNascimento.Size = new System.Drawing.Size(89, 22);
             this.dtNascimento.TabIndex = 15;
@@ -185,7 +187,7 @@
             this.listViewResultados.FullRowSelect = true;
             this.listViewResultados.GridLines = true;
             this.listViewResultados.HideSelection = false;
-            this.listViewResultados.Location = new System.Drawing.Point(34, 74);
+            this.listViewResultados.Location = new System.Drawing.Point(23, 119);
             this.listViewResultados.Name = "listViewResultados";
             this.listViewResultados.Size = new System.Drawing.Size(556, 121);
             this.listViewResultados.TabIndex = 45;
@@ -218,7 +220,7 @@
             this.txtNomeFalecido.BackColor = System.Drawing.Color.White;
             this.txtNomeFalecido.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeFalecido.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNomeFalecido.Location = new System.Drawing.Point(36, 241);
+            this.txtNomeFalecido.Location = new System.Drawing.Point(25, 286);
             this.txtNomeFalecido.Name = "txtNomeFalecido";
             this.txtNomeFalecido.Size = new System.Drawing.Size(215, 25);
             this.txtNomeFalecido.TabIndex = 51;
@@ -228,7 +230,7 @@
             this.txtNomePai.BackColor = System.Drawing.Color.White;
             this.txtNomePai.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomePai.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNomePai.Location = new System.Drawing.Point(36, 295);
+            this.txtNomePai.Location = new System.Drawing.Point(25, 340);
             this.txtNomePai.Name = "txtNomePai";
             this.txtNomePai.Size = new System.Drawing.Size(215, 25);
             this.txtNomePai.TabIndex = 52;
@@ -238,7 +240,7 @@
             this.txtNomeMae.BackColor = System.Drawing.Color.White;
             this.txtNomeMae.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNomeMae.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNomeMae.Location = new System.Drawing.Point(36, 349);
+            this.txtNomeMae.Location = new System.Drawing.Point(25, 394);
             this.txtNomeMae.Name = "txtNomeMae";
             this.txtNomeMae.Size = new System.Drawing.Size(215, 25);
             this.txtNomeMae.TabIndex = 53;
@@ -249,9 +251,10 @@
             this.dtDataObito.CalendarForeColor = System.Drawing.Color.DimGray;
             this.dtDataObito.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
             this.dtDataObito.CalendarTitleForeColor = System.Drawing.Color.DimGray;
+            this.dtDataObito.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtDataObito.CustomFormat = "dd/MM/yyyy";
             this.dtDataObito.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDataObito.Location = new System.Drawing.Point(526, 240);
+            this.dtDataObito.Location = new System.Drawing.Point(515, 285);
             this.dtDataObito.Name = "dtDataObito";
             this.dtDataObito.Size = new System.Drawing.Size(89, 22);
             this.dtDataObito.TabIndex = 54;
@@ -262,9 +265,10 @@
             this.dtDataRegistro.CalendarForeColor = System.Drawing.Color.DimGray;
             this.dtDataRegistro.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
             this.dtDataRegistro.CalendarTitleForeColor = System.Drawing.Color.DimGray;
+            this.dtDataRegistro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtDataRegistro.CustomFormat = "dd/MM/yyyy";
             this.dtDataRegistro.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDataRegistro.Location = new System.Drawing.Point(394, 240);
+            this.dtDataRegistro.Location = new System.Drawing.Point(383, 285);
             this.dtDataRegistro.Name = "dtDataRegistro";
             this.dtDataRegistro.Size = new System.Drawing.Size(89, 22);
             this.dtDataRegistro.TabIndex = 55;
@@ -275,9 +279,10 @@
             this.dtNascimentoPai.CalendarForeColor = System.Drawing.Color.DimGray;
             this.dtNascimentoPai.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
             this.dtNascimentoPai.CalendarTitleForeColor = System.Drawing.Color.DimGray;
+            this.dtNascimentoPai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtNascimentoPai.CustomFormat = "dd/MM/yyyy";
             this.dtNascimentoPai.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNascimentoPai.Location = new System.Drawing.Point(260, 295);
+            this.dtNascimentoPai.Location = new System.Drawing.Point(249, 340);
             this.dtNascimentoPai.Name = "dtNascimentoPai";
             this.dtNascimentoPai.Size = new System.Drawing.Size(89, 22);
             this.dtNascimentoPai.TabIndex = 56;
@@ -288,9 +293,10 @@
             this.dtNascimentoMae.CalendarForeColor = System.Drawing.Color.DimGray;
             this.dtNascimentoMae.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
             this.dtNascimentoMae.CalendarTitleForeColor = System.Drawing.Color.DimGray;
+            this.dtNascimentoMae.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtNascimentoMae.CustomFormat = "dd/MM/yyyy";
             this.dtNascimentoMae.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtNascimentoMae.Location = new System.Drawing.Point(260, 349);
+            this.dtNascimentoMae.Location = new System.Drawing.Point(249, 394);
             this.dtNascimentoMae.Name = "dtNascimentoMae";
             this.dtNascimentoMae.Size = new System.Drawing.Size(89, 22);
             this.dtNascimentoMae.TabIndex = 57;
@@ -298,13 +304,14 @@
             // btnLimpar
             // 
             this.btnLimpar.BackColor = System.Drawing.Color.White;
+            this.btnLimpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpar.FlatAppearance.BorderSize = 0;
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.DimGray;
             this.btnLimpar.Image = global::CartorioCivil.Properties.Resources.Limpar;
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimpar.Location = new System.Drawing.Point(377, 397);
+            this.btnLimpar.Location = new System.Drawing.Point(366, 442);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(89, 25);
             this.btnLimpar.TabIndex = 61;
@@ -316,13 +323,14 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.White;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.DimGray;
             this.btnExcluir.Image = global::CartorioCivil.Properties.Resources.Excluir;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExcluir.Location = new System.Drawing.Point(260, 397);
+            this.btnExcluir.Location = new System.Drawing.Point(249, 442);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(89, 25);
             this.btnExcluir.TabIndex = 60;
@@ -334,13 +342,14 @@
             // btnAtualizar
             // 
             this.btnAtualizar.BackColor = System.Drawing.Color.White;
+            this.btnAtualizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAtualizar.FlatAppearance.BorderSize = 0;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.DimGray;
             this.btnAtualizar.Image = global::CartorioCivil.Properties.Resources.Atualizar;
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAtualizar.Location = new System.Drawing.Point(151, 397);
+            this.btnAtualizar.Location = new System.Drawing.Point(140, 442);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(89, 25);
             this.btnAtualizar.TabIndex = 59;
@@ -352,13 +361,14 @@
             // btnAdicionar
             // 
             this.btnAdicionar.BackColor = System.Drawing.Color.White;
+            this.btnAdicionar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdicionar.FlatAppearance.BorderSize = 0;
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.ForeColor = System.Drawing.Color.DimGray;
             this.btnAdicionar.Image = global::CartorioCivil.Properties.Resources.Adicionar;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAdicionar.Location = new System.Drawing.Point(36, 395);
+            this.btnAdicionar.Location = new System.Drawing.Point(25, 440);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(89, 25);
             this.btnAdicionar.TabIndex = 58;
@@ -370,13 +380,14 @@
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.White;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.FlatAppearance.BorderSize = 0;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.DimGray;
             this.btnBuscar.Image = global::CartorioCivil.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.Location = new System.Drawing.Point(260, 30);
+            this.btnBuscar.Location = new System.Drawing.Point(249, 75);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(89, 27);
             this.btnBuscar.TabIndex = 50;
@@ -385,12 +396,33 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnInicio
+            // 
+            this.btnInicio.BackColor = System.Drawing.Color.White;
+            this.btnInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInicio.FlatAppearance.BorderSize = 0;
+            this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicio.ForeColor = System.Drawing.Color.DimGray;
+            this.btnInicio.Image = global::CartorioCivil.Properties.Resources.Inicio;
+            this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInicio.Location = new System.Drawing.Point(25, 12);
+            this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnInicio.Name = "btnInicio";
+            this.btnInicio.Size = new System.Drawing.Size(104, 25);
+            this.btnInicio.TabIndex = 111;
+            this.btnInicio.Text = "Inicio";
+            this.btnInicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInicio.UseVisualStyleBackColor = false;
+            this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
+            // 
             // FormObito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(253)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 508);
+            this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAtualizar);
@@ -457,5 +489,6 @@
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnInicio;
     }
 }
