@@ -117,26 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Adicionar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Apresentacao\Resources\Adicionar.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Atualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Apresentacao\Resources\Atualizar.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Buscar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Apresentacao\Resources\Buscar.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Excluir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Apresentacao\Resources\Excluir.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Apresentacao\Resources\Inicio.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Limpar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Apresentacao\Resources\Limpar.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Redirecionar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Apresentacao\Resources\Redirecionar.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="reportViewer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

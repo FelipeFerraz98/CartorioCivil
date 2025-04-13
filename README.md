@@ -17,7 +17,8 @@ CartorioCivil/
 │   └── RegistrosDAO/     # Implementações de acesso a dados
 ├── Negocios/
 │   ├── Servicos/         # Lógica de negócio
-│   └── Validadores/      # Validações (CPF, entidade)
+│   ├── Validadores/      # Validações (CPF, entidade)
+│   └── Relatorios/       # Geração de relatórios em DataTable
 ├── CartorioCivil.Testes/ # Testes automatizados com NUnit + Moq            
 ```
 

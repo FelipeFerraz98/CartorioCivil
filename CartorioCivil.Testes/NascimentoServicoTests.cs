@@ -34,8 +34,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Fernanda Silva",
                 DataNascimentoPai = new DateTime(1980, 5, 10),
                 DataNascimentoMae = new DateTime(1985, 8, 20),
-                CpfnPai = "425.493.080-18",
-                CpfnMae = "256.109.870-24"
+                CpfPai = "425.493.080-18",
+                CpfMae = "256.109.870-24"
             };
 
             _mockNascimentoDAO.Setup(dao => dao.AdicionarAsync(It.IsAny<Nascimento>())).ReturnsAsync(1);
@@ -58,8 +58,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Fernanda Silva",
                 DataNascimentoPai = new DateTime(1980, 5, 10),
                 DataNascimentoMae = new DateTime(1985, 8, 20),
-                CpfnPai = "425.493.080-18",
-                CpfnMae = "256.109.870-24"
+                CpfPai = "425.493.080-18",
+                CpfMae = "256.109.870-24"
             };
             nascimento.DataNascimento = DateTime.Today.AddDays(1);
 
@@ -79,8 +79,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Fernanda Silva",
                 DataNascimentoPai = new DateTime(1980, 5, 10),
                 DataNascimentoMae = new DateTime(1985, 8, 20),
-                CpfnPai = "123.456.789-00",
-                CpfnMae = "256.109.870-24"
+                CpfPai = "123.456.789-00",
+                CpfMae = "256.109.870-24"
             };
 
             var ex = Assert.ThrowsAsync<ArgumentException>(async () => await _nascimentoServico.AdicionarAsync(nascimento));
@@ -99,8 +99,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Fernanda Silva",
                 DataNascimentoPai = new DateTime(1980, 5, 10),
                 DataNascimentoMae = new DateTime(1985, 8, 20),
-                CpfnPai = "123.456.789-00",
-                CpfnMae = "256.109.870-24"
+                CpfPai = "123.456.789-00",
+                CpfMae = "256.109.870-24"
             };
 
             _mockNascimentoDAO.Setup(dao => dao.ObterPorNomeAsync(nascimento.NomeRegistrado))
@@ -134,8 +134,8 @@ namespace CartorioCivil.Tests
                 NomeMae = "Fernanda Silva",
                 DataNascimentoPai = new DateTime(1980, 5, 10),
                 DataNascimentoMae = new DateTime(1985, 8, 20),
-                CpfnPai = "123.456.789-00",
-                CpfnMae = "256.109.870-24"
+                CpfPai = "123.456.789-00",
+                CpfMae = "256.109.870-24"
             };
 
             _mockNascimentoDAO.Setup(dao => dao.ObterPorPeriodoAsync(dataInicio, dataFim))

@@ -309,7 +309,6 @@
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLimpar.Image = global::CartorioCivil.Properties.Resources.Limpar;
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.Location = new System.Drawing.Point(366, 442);
             this.btnLimpar.Name = "btnLimpar";
@@ -328,7 +327,6 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.DimGray;
-            this.btnExcluir.Image = global::CartorioCivil.Properties.Resources.Excluir;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.Location = new System.Drawing.Point(249, 442);
             this.btnExcluir.Name = "btnExcluir";
@@ -347,7 +345,6 @@
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAtualizar.Image = global::CartorioCivil.Properties.Resources.Atualizar;
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAtualizar.Location = new System.Drawing.Point(140, 442);
             this.btnAtualizar.Name = "btnAtualizar";
@@ -366,7 +363,6 @@
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAdicionar.Image = global::CartorioCivil.Properties.Resources.Adicionar;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdicionar.Location = new System.Drawing.Point(25, 440);
             this.btnAdicionar.Name = "btnAdicionar";
@@ -385,7 +381,6 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBuscar.Image = global::CartorioCivil.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.Location = new System.Drawing.Point(249, 75);
             this.btnBuscar.Name = "btnBuscar";
@@ -404,7 +399,6 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.DimGray;
-            this.btnInicio.Image = global::CartorioCivil.Properties.Resources.Inicio;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInicio.Location = new System.Drawing.Point(25, 12);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -453,7 +447,7 @@
             this.MaximizeBox = false;
             this.Name = "FormObito";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormObito";
+            this.Text = "Obito";
             this.ResumeLayout(false);
             this.PerformLayout();
 

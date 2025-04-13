@@ -201,17 +201,17 @@
             // NascimentoConjuge1
             // 
             this.NascimentoConjuge1.Text = "Nascimento do Conjuge";
-            this.NascimentoConjuge1.Width = 159;
+            this.NascimentoConjuge1.Width = 166;
             // 
             // CpfConjuge1
             // 
             this.CpfConjuge1.Text = "CPF do Conjuge";
-            this.CpfConjuge1.Width = 120;
+            this.CpfConjuge1.Width = 128;
             // 
             // NomeConjuge1
             // 
             this.NomeConjuge1.Text = "Nome do Conjuge";
-            this.NomeConjuge1.Width = 148;
+            this.NomeConjuge1.Width = 238;
             // 
             // listViewResultados
             // 
@@ -232,7 +232,7 @@
             this.listViewResultados.Location = new System.Drawing.Point(26, 102);
             this.listViewResultados.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.listViewResultados.Name = "listViewResultados";
-            this.listViewResultados.Size = new System.Drawing.Size(1107, 139);
+            this.listViewResultados.Size = new System.Drawing.Size(1101, 139);
             this.listViewResultados.TabIndex = 73;
             this.listViewResultados.UseCompatibleStateImageBehavior = false;
             this.listViewResultados.View = System.Windows.Forms.View.Details;
@@ -241,14 +241,17 @@
             // NomeConjuge2
             // 
             this.NomeConjuge2.Text = "Nome do Conjuge";
+            this.NomeConjuge2.Width = 238;
             // 
             // CpfConjuge2
             // 
             this.CpfConjuge2.Text = "CPF do Conjuge";
+            this.CpfConjuge2.Width = 142;
             // 
             // NascimentoConjuge2
             // 
             this.NascimentoConjuge2.Text = "Nascimento do Conjuge";
+            this.NascimentoConjuge2.Width = 165;
             // 
             // dtNascimentoConjuge1
             // 
@@ -654,7 +657,6 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.DimGray;
-            this.btnInicio.Image = global::CartorioCivil.Properties.Resources.Inicio;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInicio.Location = new System.Drawing.Point(25, 12);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -674,7 +676,6 @@
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLimpar.Image = global::CartorioCivil.Properties.Resources.Limpar;
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.Location = new System.Drawing.Point(392, 517);
             this.btnLimpar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -694,7 +695,6 @@
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAtualizar.Image = global::CartorioCivil.Properties.Resources.Atualizar;
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAtualizar.Location = new System.Drawing.Point(163, 517);
             this.btnAtualizar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -714,7 +714,6 @@
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAdicionar.Image = global::CartorioCivil.Properties.Resources.Adicionar;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdicionar.Location = new System.Drawing.Point(26, 517);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -734,7 +733,6 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBuscar.Image = global::CartorioCivil.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.Location = new System.Drawing.Point(274, 71);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -753,7 +751,6 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.DimGray;
-            this.btnExcluir.Image = global::CartorioCivil.Properties.Resources.Excluir;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.Location = new System.Drawing.Point(275, 517);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -831,7 +828,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCasamento";
+            this.Text = "Casamento";
             this.ResumeLayout(false);
             this.PerformLayout();
 

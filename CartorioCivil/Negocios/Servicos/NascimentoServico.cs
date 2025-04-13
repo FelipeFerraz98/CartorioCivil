@@ -88,10 +88,10 @@ namespace CartorioCivil.Negocios.Servicos
 
         private void ValidarCPFs(Nascimento nascimento)
         {
-            if (!ValidarCPF.Validar(nascimento.CpfnPai))
+            if (!ValidarCPF.Validar(nascimento.CpfPai))
                 throw new ArgumentException("CPF do pai inválido.");
 
-            if (!ValidarCPF.Validar(nascimento.CpfnMae))
+            if (!ValidarCPF.Validar(nascimento.CpfMae))
                 throw new ArgumentException("CPF da mãe inválido.");
         }
     }

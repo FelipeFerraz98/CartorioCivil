@@ -11,7 +11,7 @@ namespace CartorioCivil.Entidades
         public string NomeMae { get; set; }
         public DateTime DataNascimentoPai { get; set; }
         public DateTime DataNascimentoMae { get; set; }
-        public string CpfnPai { get; set; }
-        public string CpfnMae { get; set; }
+        public string CpfPai { get; set; }
+        public string CpfMae { get; set; }
     }
 }
