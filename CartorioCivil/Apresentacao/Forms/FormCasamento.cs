@@ -96,9 +96,9 @@ namespace CartorioCivil.Apresentacao.Forms
                 Nome = txtNomeConjuge1.Text.Trim(),
                 CPF = txtCpfConjuge1.Text.Trim(),
                 NomePai = txtNomePaiConjuge1.Text.Trim(),
-                CpfnPai = txtCpfPaiConjuge1.Text.Trim(),
+                CpfPai = txtCpfPaiConjuge1.Text.Trim(),
                 NomeMae = txtNomeMaeConjuge1.Text.Trim(),
-                CpfnMae = txtCpfMaeConjuge1.Text.Trim(),
+                CpfMae = txtCpfMaeConjuge1.Text.Trim(),
                 DataNascimentoPai = dtNascimentoPaiConjuge1.Value,
                 DataNascimentoMae = dtNascimentoMaeConjuge1.Value
             };
@@ -108,9 +108,9 @@ namespace CartorioCivil.Apresentacao.Forms
                 Nome = txtNomeConjuge2.Text.Trim(),
                 CPF = txtCpfConjuge2.Text.Trim(),
                 NomePai = txtNomePaiConjuge2.Text.Trim(),
-                CpfnPai = txtCpfPaiConjuge2.Text.Trim(),
+                CpfPai = txtCpfPaiConjuge2.Text.Trim(),
                 NomeMae = txtNomeMaeConjuge2.Text.Trim(),
-                CpfnMae = txtCpfMaeConjuge2.Text.Trim(),
+                CpfMae = txtCpfMaeConjuge2.Text.Trim(),
                 DataNascimentoPai = dtNascimentoPaiConjuge2.Value,
                 DataNascimentoMae = dtNascimentoMaeConjuge2.Value
             };
@@ -229,18 +229,18 @@ namespace CartorioCivil.Apresentacao.Forms
                 txtNomeConjuge1.Text = casamento.Conjuge1.Nome;
                 txtCpfConjuge1.Text = casamento.Conjuge1.CPF;
                 txtNomePaiConjuge1.Text = casamento.Conjuge1.NomePai;
-                txtCpfPaiConjuge1.Text = casamento.Conjuge1.CpfnPai;
+                txtCpfPaiConjuge1.Text = casamento.Conjuge1.CpfPai;
                 txtNomeMaeConjuge1.Text = casamento.Conjuge1.NomeMae;
-                txtCpfMaeConjuge1.Text = casamento.Conjuge1.CpfnMae;
+                txtCpfMaeConjuge1.Text = casamento.Conjuge1.CpfMae;
                 dtNascimentoPaiConjuge1.Value = casamento.Conjuge1.DataNascimentoPai;
                 dtNascimentoMaeConjuge1.Value = casamento.Conjuge1.DataNascimentoMae;
 
                 txtNomeConjuge2.Text = casamento.Conjuge2.Nome;
                 txtCpfConjuge2.Text = casamento.Conjuge2.CPF;
                 txtNomePaiConjuge2.Text = casamento.Conjuge2.NomePai;
-                txtCpfPaiConjuge2.Text = casamento.Conjuge2.CpfnPai;
+                txtCpfPaiConjuge2.Text = casamento.Conjuge2.CpfPai;
                 txtNomeMaeConjuge2.Text = casamento.Conjuge2.NomeMae;
-                txtCpfMaeConjuge2.Text = casamento.Conjuge2.CpfnMae;
+                txtCpfMaeConjuge2.Text = casamento.Conjuge2.CpfMae;
                 dtNascimentoPaiConjuge2.Value = casamento.Conjuge2.DataNascimentoPai;
                 dtNascimentoMaeConjuge2.Value = casamento.Conjuge2.DataNascimentoMae;
 

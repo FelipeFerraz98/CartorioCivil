@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 using CartorioCivil.Entidades;
+using CartorioCivil.Negocios.Relatorios;
 using CartorioCivil.Negocios.Servicos;
 
 namespace CartorioCivil.Apresentacao.Forms
@@ -82,8 +84,8 @@ namespace CartorioCivil.Apresentacao.Forms
                     NomeRegistrado = txtNome.Text.Trim(),
                     NomePai = txtNomePai.Text.Trim(),
                     NomeMae = txtNomeMae.Text.Trim(),
-                    CpfnPai = txtCpfPai.Text.Trim(),
-                    CpfnMae = txtCpfMae.Text.Trim(),
+                    CpfPai = txtCpfPai.Text.Trim(),
+                    CpfMae = txtCpfMae.Text.Trim(),
                     DataNascimento = dtNascimento.Value.Date,
                     DataRegistro = dtRegistro.Value.Date,
                     DataNascimentoPai = dtNascimentoPai.Value.Date,
@@ -110,8 +112,8 @@ namespace CartorioCivil.Apresentacao.Forms
                 _nascimentoSelecionado.NomeRegistrado = txtNome.Text.Trim();
                 _nascimentoSelecionado.NomePai = txtNomePai.Text.Trim();
                 _nascimentoSelecionado.NomeMae = txtNomeMae.Text.Trim();
-                _nascimentoSelecionado.CpfnPai = txtCpfPai.Text.Trim();
-                _nascimentoSelecionado.CpfnMae = txtCpfMae.Text.Trim();
+                _nascimentoSelecionado.CpfPai = txtCpfPai.Text.Trim();
+                _nascimentoSelecionado.CpfMae = txtCpfMae.Text.Trim();
                 _nascimentoSelecionado.DataNascimento = dtNascimento.Value.Date;
                 _nascimentoSelecionado.DataRegistro = dtRegistro.Value.Date;
                 _nascimentoSelecionado.DataNascimentoPai = dtNascimentoPai.Value.Date;
@@ -156,8 +158,8 @@ namespace CartorioCivil.Apresentacao.Forms
                     txtNome.Text = _nascimentoSelecionado.NomeRegistrado;
                     txtNomePai.Text = _nascimentoSelecionado.NomePai;
                     txtNomeMae.Text = _nascimentoSelecionado.NomeMae;
-                    txtCpfPai.Text = _nascimentoSelecionado.CpfnPai;
-                    txtCpfMae.Text = _nascimentoSelecionado.CpfnMae;
+                    txtCpfPai.Text = _nascimentoSelecionado.CpfPai;
+                    txtCpfMae.Text = _nascimentoSelecionado.CpfMae;
                     dtNascimento.Value = _nascimentoSelecionado.DataNascimento;
                     dtRegistro.Value = _nascimentoSelecionado.DataRegistro;
                     dtNascimentoPai.Value = _nascimentoSelecionado.DataNascimentoPai;
@@ -170,6 +172,26 @@ namespace CartorioCivil.Apresentacao.Forms
         private void btnInicio_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var relNascimento = new RelNascimento();
+                DataTable dt = await relNascimento.GerarRelatorio(dtInicio.Value, dtFinal.Value);
+
+                using (var form = new FormRelNascimento(dt))
+                {
+                    this.Hide();
+                    form.ShowDialog();
+                    this.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

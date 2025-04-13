@@ -41,7 +41,6 @@
             this.btnObito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnObito.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnObito.ForeColor = System.Drawing.Color.DimGray;
-            this.btnObito.Image = global::CartorioCivil.Properties.Resources.Redirecionar;
             this.btnObito.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnObito.Location = new System.Drawing.Point(593, 106);
             this.btnObito.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -60,7 +59,6 @@
             this.btnCasamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCasamento.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnCasamento.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCasamento.Image = global::CartorioCivil.Properties.Resources.Redirecionar;
             this.btnCasamento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCasamento.Location = new System.Drawing.Point(342, 106);
             this.btnCasamento.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -80,7 +78,6 @@
             this.btnNascimento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNascimento.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnNascimento.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNascimento.Image = global::CartorioCivil.Properties.Resources.Redirecionar;
             this.btnNascimento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNascimento.Location = new System.Drawing.Point(80, 106);
             this.btnNascimento.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

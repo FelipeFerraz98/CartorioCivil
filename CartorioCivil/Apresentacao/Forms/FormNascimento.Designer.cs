@@ -59,6 +59,10 @@
             this.txtCpfPai = new System.Windows.Forms.TextBox();
             this.txtCpfMae = new System.Windows.Forms.TextBox();
             this.btnInicio = new System.Windows.Forms.Button();
+            this.btnRelatorio = new System.Windows.Forms.Button();
+            this.dtInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtFinal = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label3
@@ -89,7 +93,6 @@
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnLimpar.Image = global::CartorioCivil.Properties.Resources.Limpar;
             this.btnLimpar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpar.Location = new System.Drawing.Point(356, 435);
             this.btnLimpar.Name = "btnLimpar";
@@ -108,7 +111,6 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.DimGray;
-            this.btnExcluir.Image = global::CartorioCivil.Properties.Resources.Excluir;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.Location = new System.Drawing.Point(239, 435);
             this.btnExcluir.Name = "btnExcluir";
@@ -127,7 +129,6 @@
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtualizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAtualizar.Image = global::CartorioCivil.Properties.Resources.Atualizar;
             this.btnAtualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAtualizar.Location = new System.Drawing.Point(130, 435);
             this.btnAtualizar.Name = "btnAtualizar";
@@ -146,7 +147,6 @@
             this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdicionar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAdicionar.Image = global::CartorioCivil.Properties.Resources.Adicionar;
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdicionar.Location = new System.Drawing.Point(15, 433);
             this.btnAdicionar.Name = "btnAdicionar";
@@ -237,7 +237,6 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBuscar.Image = global::CartorioCivil.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.Location = new System.Drawing.Point(239, 68);
             this.btnBuscar.Name = "btnBuscar";
@@ -422,7 +421,6 @@
             this.btnInicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicio.ForeColor = System.Drawing.Color.DimGray;
-            this.btnInicio.Image = global::CartorioCivil.Properties.Resources.Inicio;
             this.btnInicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInicio.Location = new System.Drawing.Point(15, 12);
             this.btnInicio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -434,12 +432,71 @@
             this.btnInicio.UseVisualStyleBackColor = false;
             this.btnInicio.Click += new System.EventHandler(this.btnInicio_Click);
             // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.BackColor = System.Drawing.Color.White;
+            this.btnRelatorio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelatorio.ForeColor = System.Drawing.Color.DimGray;
+            this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRelatorio.Location = new System.Drawing.Point(724, 162);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(89, 27);
+            this.btnRelatorio.TabIndex = 112;
+            this.btnRelatorio.Text = "Relatório";
+            this.btnRelatorio.UseVisualStyleBackColor = false;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
+            // 
+            // dtInicio
+            // 
+            this.dtInicio.CalendarFont = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtInicio.CalendarForeColor = System.Drawing.Color.DimGray;
+            this.dtInicio.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.dtInicio.CalendarTitleForeColor = System.Drawing.Color.DimGray;
+            this.dtInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtInicio.CustomFormat = "dd/MM/yyyy";
+            this.dtInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtInicio.Location = new System.Drawing.Point(676, 133);
+            this.dtInicio.Name = "dtInicio";
+            this.dtInicio.Size = new System.Drawing.Size(89, 23);
+            this.dtInicio.TabIndex = 113;
+            // 
+            // dtFinal
+            // 
+            this.dtFinal.CalendarFont = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtFinal.CalendarForeColor = System.Drawing.Color.DimGray;
+            this.dtFinal.CalendarMonthBackground = System.Drawing.Color.WhiteSmoke;
+            this.dtFinal.CalendarTitleForeColor = System.Drawing.Color.DimGray;
+            this.dtFinal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtFinal.CustomFormat = "dd/MM/yyyy";
+            this.dtFinal.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFinal.Location = new System.Drawing.Point(771, 133);
+            this.dtFinal.Name = "dtFinal";
+            this.dtFinal.Size = new System.Drawing.Size(89, 23);
+            this.dtFinal.TabIndex = 114;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label1.Location = new System.Drawing.Point(673, 112);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 15);
+            this.label1.TabIndex = 115;
+            this.label1.Text = "Data de registro";
+            // 
             // FormNascimento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(253)))), ((int)(((byte)(251)))));
-            this.ClientSize = new System.Drawing.Size(800, 498);
+            this.ClientSize = new System.Drawing.Size(961, 498);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtFinal);
+            this.Controls.Add(this.dtInicio);
+            this.Controls.Add(this.btnRelatorio);
             this.Controls.Add(this.btnInicio);
             this.Controls.Add(this.txtCpfMae);
             this.Controls.Add(this.txtCpfPai);
@@ -512,5 +569,9 @@
         private System.Windows.Forms.TextBox txtCpfPai;
         private System.Windows.Forms.TextBox txtCpfMae;
         private System.Windows.Forms.Button btnInicio;
+        private System.Windows.Forms.Button btnRelatorio;
+        private System.Windows.Forms.DateTimePicker dtInicio;
+        private System.Windows.Forms.DateTimePicker dtFinal;
+        private System.Windows.Forms.Label label1;
     }
 }
