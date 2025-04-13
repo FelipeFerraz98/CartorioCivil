@@ -11,38 +11,38 @@ namespace CartorioCivil.Negocios.Servicos
     public class CasamentoServico : RegistroServicoBase<Casamento>
     {
         private readonly ICasamentoDAO _casamentoDAO;
-        private readonly IConjugueDAO _conjugueDAO;
+        private readonly IConjugeDAO _conjugeDAO;
 
         public CasamentoServico()
         {
             _casamentoDAO = new CasamentoDAO();
-            _conjugueDAO = new ConjugueDAO();
+            _conjugeDAO = new ConjugeDAO();
         }
 
-        public CasamentoServico(ICasamentoDAO casamentoDAO, IConjugueDAO conjugueDAO)
+        public CasamentoServico(ICasamentoDAO casamentoDAO, IConjugeDAO conjugeDAO)
         {
             _casamentoDAO = casamentoDAO;
-            _conjugueDAO = conjugueDAO;
+            _conjugeDAO = conjugeDAO;
         }
         public override async Task<int> AdicionarAsync(Casamento casamento, params object[] parametros)
         {
             if (parametros == null || parametros.Length != 2)
-                throw new ArgumentException("São necessários dois parâmetros do tipo Conjugue.");
+                throw new ArgumentException("São necessários dois parâmetros do tipo Conjuge.");
 
-            Conjugue conjugue1 = parametros[0] as Conjugue;
-            Conjugue conjugue2 = parametros[1] as Conjugue;
+            Conjuge conjuge1 = parametros[0] as Conjuge;
+            Conjuge conjuge2 = parametros[1] as Conjuge;
 
-            ValidarConjugues(conjugue1, conjugue2);
-            ValidarCpfs(conjugue1, conjugue2);
+            ValidarConjuges(conjuge1, conjuge2);
+            ValidarCpfs(conjuge1, conjuge2);
 
             if (casamento.DataCasamento > DateTime.Today)
                 throw new ArgumentException("A data do casamento não pode ser no futuro.");
 
-            conjugue1.Id = await _conjugueDAO.AdicionarAsync(conjugue1);
-            conjugue2.Id = await _conjugueDAO.AdicionarAsync(conjugue2);
+            conjuge1.Id = await _conjugeDAO.AdicionarAsync(conjuge1);
+            conjuge2.Id = await _conjugeDAO.AdicionarAsync(conjuge2);
 
-            casamento.IdConjugue1 = conjugue1.Id;
-            casamento.IdConjugue2 = conjugue2.Id;
+            casamento.IdConjuge1 = conjuge1.Id;
+            casamento.IdConjuge2 = conjuge2.Id;
 
             return await _casamentoDAO.AdicionarAsync(casamento);
         }
@@ -50,19 +50,19 @@ namespace CartorioCivil.Negocios.Servicos
         public override async Task AtualizarAsync(Casamento casamento, params object[] parametros)
         {
             if (parametros == null || parametros.Length != 2)
-                throw new ArgumentException("São necessários dois parâmetros do tipo Conjugue.");
+                throw new ArgumentException("São necessários dois parâmetros do tipo Conjuge.");
 
-            Conjugue conjugue1 = parametros[0] as Conjugue;
-            Conjugue conjugue2 = parametros[1] as Conjugue;
+            Conjuge conjuge1 = parametros[0] as Conjuge;
+            Conjuge conjuge2 = parametros[1] as Conjuge;
 
-            ValidarConjugues( conjugue1, conjugue2);
-            ValidarCpfs(conjugue1, conjugue2);  
+            ValidarConjuges( conjuge1, conjuge2);
+            ValidarCpfs(conjuge1, conjuge2);  
 
             if (casamento.DataCasamento > DateTime.Today)
                 throw new ArgumentException("A data do casamento não pode ser no futuro.");
 
-            await _conjugueDAO.AtualizarAsync(conjugue1);
-            await _conjugueDAO.AtualizarAsync(conjugue2);
+            await _conjugeDAO.AtualizarAsync(conjuge1);
+            await _conjugeDAO.AtualizarAsync(conjuge2);
 
             await _casamentoDAO.AtualizarAsync(casamento);
         }
@@ -74,20 +74,20 @@ namespace CartorioCivil.Negocios.Servicos
 
             await _casamentoDAO.RemoverAsync(idCasamento);
 
-            await _conjugueDAO.RemoverAsync(casamento.IdConjugue1);
-            await _conjugueDAO.RemoverAsync(casamento.IdConjugue2);
+            await _conjugeDAO.RemoverAsync(casamento.IdConjuge1);
+            await _conjugeDAO.RemoverAsync(casamento.IdConjuge2);
         }
 
-        public async Task<Casamento> ObterCasamentoPorConjugueAsync(int idConjugue)
+        public async Task<Casamento> ObterCasamentoPorConjugeAsync(int idConjuge)
         {
-            var casamento = await _casamentoDAO.ObterPorIdConjugueAsync(idConjugue);
+            var casamento = await _casamentoDAO.ObterPorIdConjugeAsync(idConjuge);
             if (casamento != null)
             {
-                var conjugue1 = await _conjugueDAO.ObterPorIdAsync(casamento.IdConjugue1);
-                var conjugue2 = await _conjugueDAO.ObterPorIdAsync(casamento.IdConjugue2);
+                var conjuge1 = await _conjugeDAO.ObterPorIdAsync(casamento.IdConjuge1);
+                var conjuge2 = await _conjugeDAO.ObterPorIdAsync(casamento.IdConjuge2);
 
-                casamento.Conjugue1 = conjugue1;
-                casamento.Conjugue2 = conjugue2;
+                casamento.Conjuge1 = conjuge1;
+                casamento.Conjuge2 = conjuge2;
             }
 
             return casamento;
@@ -98,26 +98,26 @@ namespace CartorioCivil.Negocios.Servicos
             var casamentos = await _casamentoDAO.ObterTodosAsync();
             foreach (var casamento in casamentos)
             {
-                casamento.Conjugue1 = await _conjugueDAO.ObterPorIdAsync(casamento.IdConjugue1);
-                casamento.Conjugue2 = await _conjugueDAO.ObterPorIdAsync(casamento.IdConjugue2);
+                casamento.Conjuge1 = await _conjugeDAO.ObterPorIdAsync(casamento.IdConjuge1);
+                casamento.Conjuge2 = await _conjugeDAO.ObterPorIdAsync(casamento.IdConjuge2);
             }
 
             return casamentos;
         }
 
-        public async Task<List<Conjugue>> ObterConjuguePorNomeAsync(string nome)
+        public async Task<List<Conjuge>> ObterConjugePorNomeAsync(string nome)
         {
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException("O nome do cônjuge não pode ser vazio.");
 
-            var conjugue = await _conjugueDAO.ObterPorNomeAsync(nome);
+            var conjuge = await _conjugeDAO.ObterPorNomeAsync(nome);
 
-            _ = conjugue ?? throw new ArgumentException("Cônjuge não encontrado.");
+            _ = conjuge ?? throw new ArgumentException("Cônjuge não encontrado.");
 
-            return conjugue;
+            return conjuge;
         }
 
-        public async Task<Conjugue> ObterConjuguePorCpfAsync(string cpf)
+        public async Task<Conjuge> ObterConjugePorCpfAsync(string cpf)
         {
             if (string.IsNullOrWhiteSpace(cpf))
                 throw new ArgumentException("O CPF do cônjuge não pode ser vazio.");
@@ -125,26 +125,26 @@ namespace CartorioCivil.Negocios.Servicos
             if (!ValidarCPF.Validar(cpf))
                 throw new ArgumentException("O CPF fornecido é inválido.");
 
-            var conjugue = await _conjugueDAO.ObterPorCpfAsync(cpf);
+            var conjuge = await _conjugeDAO.ObterPorCpfAsync(cpf);
 
-            _ = conjugue ?? throw new ArgumentException("Cônjuge não encontrado.");
+            _ = conjuge ?? throw new ArgumentException("Cônjuge não encontrado.");
 
-            return conjugue;
+            return conjuge;
         }
 
 
-        private void ValidarConjugues( Conjugue conjugue1, Conjugue conjugue2)
+        private void ValidarConjuges( Conjuge conjuge1, Conjuge conjuge2)
         {
-            ValidarEntidade.Validar(conjugue1);
-            ValidarEntidade.Validar(conjugue2);
+            ValidarEntidade.Validar(conjuge1);
+            ValidarEntidade.Validar(conjuge2);
         }
-        private void ValidarCpfs(Conjugue conjugue1, Conjugue conjugue2)
+        private void ValidarCpfs(Conjuge conjuge1, Conjuge conjuge2)
         {
-            if (!ValidarCPF.Validar(conjugue1.CPF))
-                throw new ArgumentException("O CPFs do Conjugue1 é inválido.");
+            if (!ValidarCPF.Validar(conjuge1.CPF))
+                throw new ArgumentException("O CPFs do Conjuge1 é inválido.");
 
-            if (!ValidarCPF.Validar(conjugue2.CPF))
-                throw new ArgumentException("O CPFs do Conjugue2 é inválido.");
+            if (!ValidarCPF.Validar(conjuge2.CPF))
+                throw new ArgumentException("O CPFs do Conjuge2 é inválido.");
         }
     }
 }

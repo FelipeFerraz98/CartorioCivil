@@ -135,6 +135,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -153,6 +154,21 @@
   <ItemGroup>
     <Folder Include="Apresentacao\Relatorios\" />
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apresentacao\Resources\Buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apresentacao\Resources\Adicionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apresentacao\Resources\Atualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apresentacao\Resources\Excluir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apresentacao\Resources\Limpar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

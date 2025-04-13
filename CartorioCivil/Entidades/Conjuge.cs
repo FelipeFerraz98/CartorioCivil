@@ -2,7 +2,7 @@
 
 namespace CartorioCivil.Entidades
 {
-    public class Conjugue
+    public class Conjuge
     {
         public int Id { get; set; }
         public string Nome { get; set; }
