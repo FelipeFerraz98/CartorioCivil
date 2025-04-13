@@ -69,58 +69,6 @@ namespace CartorioCivil.Apresentacao.Forms
 
         }
 
-        private async void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var novoObito = ObterDadosDoForm();
-
-                int id = await _obitoServico.AdicionarAsync(novoObito);
-                novoObito.Id = id;
-                _obitoSelecionado = novoObito;
-
-                MessageBox.Show("Óbito adicionado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                AtualizarBotoes();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao adicionar óbito: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private async void btnAtualizar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_obitoSelecionado == null) return;
-
-                var obitoAtualizado = ObterDadosDoForm();
-                obitoAtualizado.Id = _obitoSelecionado.Id;
-
-                await _obitoServico.AtualizarAsync(obitoAtualizado);
-                MessageBox.Show("Óbito atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao atualizar óbito: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private async void btnExcluir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_obitoSelecionado == null) return;
-
-                await _obitoServico.RemoverAsync(_obitoSelecionado.Id);
-                MessageBox.Show("Óbito excluído com sucesso!");
-                LimparForm();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro ao excluir óbito: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void LimparForm()
         {
             txtNomeFalecido.Clear();
@@ -167,6 +115,60 @@ namespace CartorioCivil.Apresentacao.Forms
                 DataNascimentoMae = dtNascimentoMae.Value.Date
             };
 
-        private void btnLimpar_Click(object sender, EventArgs e) => LimparForm();
+        private async void btnAdicionar_Click_1(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var novoObito = ObterDadosDoForm();
+
+                int id = await _obitoServico.AdicionarAsync(novoObito);
+                novoObito.Id = id;
+                _obitoSelecionado = novoObito;
+
+                MessageBox.Show("Óbito adicionado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AtualizarBotoes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao adicionar óbito: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnAtualizar_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_obitoSelecionado == null) return;
+
+                var obitoAtualizado = ObterDadosDoForm();
+                obitoAtualizado.Id = _obitoSelecionado.Id;
+
+                await _obitoServico.AtualizarAsync(obitoAtualizado);
+                MessageBox.Show("Óbito atualizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao atualizar óbito: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnExcluir_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_obitoSelecionado == null) return;
+
+                await _obitoServico.RemoverAsync(_obitoSelecionado.Id);
+                MessageBox.Show("Óbito excluído com sucesso!");
+                LimparForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao excluir óbito: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLimpar_Click_1(object sender, EventArgs e) => LimparForm();
     }
 }
