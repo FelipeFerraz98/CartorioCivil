@@ -54,6 +54,7 @@ Formulário de gerenciamento de registros de **nascimento**.
 - Listagem automática dos resultados em uma `ListView`.
 - Selecione o casamento correto a partir da lista presente na `ListView`.
 - **Adicionar**, **editar**, **excluir** registros.
+- **Gerar relatório de nascimento por período** de datas de nascimento.
 - Botão **"Início"** para retornar ao menu principal.
 
 **Principais métodos:**
@@ -63,8 +64,22 @@ Formulário de gerenciamento de registros de **nascimento**.
 - `btnExcluir_Click_1`
 - `btnInicio_Click`
 
----
+> No `FormNascimento`, é possível gerar um **relatório** com os registros de nascimento dentro de um **período de datas** (início e fim).
 
+
+---
+### `FormRelNascimento`
+
+Formulário para exibição de um **relatório** de registros de **nascimento**.
+
+**Funcionalidades:**
+- Exibe um relatório de nascimento gerado a partir de um `DataTable`.
+- O relatório é mostrado usando um **`ReportViewer`**, onde o relatório é carregado a partir do arquivo [`RDLC`](CartorioCivil/Apresentacao/Relatorios).
+
+**Componentes principais:**
+- `reportViewer1`: Exibe o relatório gerado.
+
+---
 ### `FormObito`
 
 Formulário para gerenciamento de registros de **óbitos**.
