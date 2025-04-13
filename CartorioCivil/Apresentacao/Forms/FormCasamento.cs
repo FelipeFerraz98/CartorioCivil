@@ -9,8 +9,8 @@ namespace CartorioCivil.Apresentacao.Forms
     public partial class FormCasamento : Form
     {
         private Casamento _casamentoSelecionado;
-        private Conjugue _conjugue1;
-        private Conjugue _conjugue2;
+        private Conjuge _conjuge1;
+        private Conjuge _conjuge2;
         private readonly CasamentoServico _casamentoServico;
 
         public FormCasamento()
@@ -41,20 +41,20 @@ namespace CartorioCivil.Apresentacao.Forms
 
                 if (char.IsDigit(entrada[0]))
                 {
-                    var conjugue = await _casamentoServico.ObterConjuguePorCpfAsync(entrada);
-                    if (conjugue != null)
+                    var conjuge = await _casamentoServico.ObterConjugePorCpfAsync(entrada);
+                    if (conjuge != null)
                     {
-                        var casamento = await _casamentoServico.ObterCasamentoPorConjugueAsync(conjugue.Id);
+                        var casamento = await _casamentoServico.ObterCasamentoPorConjugeAsync(conjuge.Id);
                         if (casamento != null)
                             casamentosEncontrados.Add(casamento);
                     }
                 }
                 else
                 {
-                    var conjuges = await _casamentoServico.ObterConjuguePorNomeAsync(entrada);
-                    foreach (var conjugue in conjuges)
+                    var conjuges = await _casamentoServico.ObterConjugePorNomeAsync(entrada);
+                    foreach (var conjuge in conjuges)
                     {
-                        var casamento = await _casamentoServico.ObterCasamentoPorConjugueAsync(conjugue.Id);
+                        var casamento = await _casamentoServico.ObterCasamentoPorConjugeAsync(conjuge.Id);
                         if (casamento != null)
                             casamentosEncontrados.Add(casamento);
                     }
@@ -77,11 +77,11 @@ namespace CartorioCivil.Apresentacao.Forms
 
             foreach (var casamento in casamentos)
             {
-                var item = new ListViewItem(casamento.Conjugue1.Nome);
-                item.SubItems.Add(casamento.Conjugue1.CPF);
+                var item = new ListViewItem(casamento.Conjuge1.Nome);
+                item.SubItems.Add(casamento.Conjuge1.CPF);
 
-                item.SubItems.Add(casamento.Conjugue2.Nome);
-                item.SubItems.Add(casamento.Conjugue2.CPF);
+                item.SubItems.Add(casamento.Conjuge2.Nome);
+                item.SubItems.Add(casamento.Conjuge2.CPF);
 
                 item.SubItems.Add(casamento.DataCasamento.ToShortDateString());
                 item.SubItems.Add(casamento.DataRegistro.ToShortDateString());
@@ -91,12 +91,67 @@ namespace CartorioCivil.Apresentacao.Forms
             }
         }
 
-        private async void btnAdicionar_Click(object sender, EventArgs e)
+        private Conjuge ObterConjuge1() => new Conjuge
+            {
+                Nome = txtNomeConjuge1.Text.Trim(),
+                CPF = txtCpfConjuge1.Text.Trim(),
+                NomePai = txtNomePaiConjuge1.Text.Trim(),
+                CpfnPai = txtCpfPaiConjuge1.Text.Trim(),
+                NomeMae = txtNomeMaeConjuge1.Text.Trim(),
+                CpfnMae = txtCpfMaeConjuge1.Text.Trim(),
+                DataNascimentoPai = dtNascimentoPaiConjuge1.Value,
+                DataNascimentoMae = dtNascimentoMaeConjuge1.Value
+            };
+
+        private Conjuge ObterConjuge2() => new Conjuge
+            {
+                Nome = txtNomeConjuge2.Text.Trim(),
+                CPF = txtCpfConjuge2.Text.Trim(),
+                NomePai = txtNomePaiConjuge2.Text.Trim(),
+                CpfnPai = txtCpfPaiConjuge2.Text.Trim(),
+                NomeMae = txtNomeMaeConjuge2.Text.Trim(),
+                CpfnMae = txtCpfMaeConjuge2.Text.Trim(),
+                DataNascimentoPai = dtNascimentoPaiConjuge2.Value,
+                DataNascimentoMae = dtNascimentoMaeConjuge2.Value
+            };
+
+        private void LimparForm()
+        {
+            dtNascimentoPaiConjuge1.Value = DateTime.Today;
+            dtNascimentoMaeConjuge1.Value = DateTime.Today;
+            dtNascimentoPaiConjuge2.Value = DateTime.Today;
+            dtNascimentoMaeConjuge2.Value = DateTime.Today;
+            dtDataCasamento.Value = DateTime.Today;
+            dtDataRegistro.Value = DateTime.Today;
+
+            txtNomeConjuge2.Clear();
+            txtCpfConjuge2.Clear();
+            txtNomePaiConjuge2.Clear();
+            txtCpfPaiConjuge2.Clear();
+            txtNomeMaeConjuge2.Clear();
+            txtCpfMaeConjuge2.Clear();
+
+            txtNomeConjuge1.Clear();
+            txtCpfConjuge1.Clear();
+            txtNomePaiConjuge1.Clear();
+            txtCpfPaiConjuge1.Clear();
+            txtNomeMaeConjuge1.Clear();
+            txtCpfMaeConjuge1.Clear();
+
+            listViewResultados.Items.Clear();
+
+            _casamentoSelecionado = null;
+            _conjuge1 = null;
+            _conjuge2 = null;
+            AtualizarBotoes();
+        }
+
+        private async void btnAdicionar_Click_1(object sender, EventArgs e)
         {
             try
             {
-                _conjugue1 = ObterConjugue1();
-                _conjugue2 = ObterConjugue2();
+                _conjuge1 = ObterConjuge1();
+                _conjuge2 = ObterConjuge2();
 
                 Casamento casamento = new Casamento
                 {
@@ -104,41 +159,17 @@ namespace CartorioCivil.Apresentacao.Forms
                     DataRegistro = dtDataRegistro.Value.Date
                 };
 
-                int id = await _casamentoServico.AdicionarAsync(casamento, _conjugue1, _conjugue2);
+                int id = await _casamentoServico.AdicionarAsync(casamento, _conjuge1, _conjuge2);
                 casamento.Id = id;
-                _conjugue1.Id = casamento.IdConjugue1;
-                _conjugue2.Id = casamento.IdConjugue2;
-                casamento.Conjugue1 = _conjugue1;
-                casamento.Conjugue2 = _conjugue2;
+                _conjuge1.Id = casamento.IdConjuge1;
+                _conjuge2.Id = casamento.IdConjuge2;
+                casamento.Conjuge1 = _conjuge1;
+                casamento.Conjuge2 = _conjuge2;
 
                 _casamentoSelecionado = casamento;
 
                 MessageBox.Show("Casamento adicionado com sucesso!");
                 AtualizarBotoes();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private async void btnAtualizar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (_casamentoSelecionado == null) return;
-
-                _casamentoSelecionado.DataCasamento = dtDataCasamento.Value.Date;
-                _casamentoSelecionado.DataRegistro = dtDataRegistro.Value.Date;
-
-                var conjugue1 = ObterConjugue1();
-                var conjugue2 = ObterConjugue2();
-
-                conjugue1.Id = _casamentoSelecionado.IdConjugue1;
-                conjugue2.Id = _casamentoSelecionado.IdConjugue2;
-
-                await _casamentoServico.AtualizarAsync(_casamentoSelecionado, conjugue1, conjugue2);
-                MessageBox.Show("Casamento atualizado com sucesso!");
             }
             catch (Exception ex)
             {
@@ -162,94 +193,62 @@ namespace CartorioCivil.Apresentacao.Forms
             }
         }
 
-        private Conjugue ObterConjugue1() => new Conjugue
-            {
-                Nome = txtNomeConjugue1.Text.Trim(),
-                CPF = txtCpfConjugue1.Text.Trim(),
-                NomePai = txtNomePaiConjugue1.Text.Trim(),
-                CpfnPai = txtCpfPaiConjugue1.Text.Trim(),
-                NomeMae = txtNomeMaeConjugue1.Text.Trim(),
-                CpfnMae = txtCpfMaeConjugue1.Text.Trim(),
-                DataNascimentoPai = dtNascimentoPaiConjugue1.Value,
-                DataNascimentoMae = dtNascimentoMaeConjugue1.Value
-            };
-
-        private Conjugue ObterConjugue2() => new Conjugue
-            {
-                Nome = txtNomeConjugue2.Text.Trim(),
-                CPF = txtCpfConjugue2.Text.Trim(),
-                NomePai = txtNomePaiConjugue2.Text.Trim(),
-                CpfnPai = txtCpfPaiConjugue2.Text.Trim(),
-                NomeMae = txtNomeMaeConjugue2.Text.Trim(),
-                CpfnMae = txtCpfMaeConjugue2.Text.Trim(),
-                DataNascimentoPai = dtNascimentoPaiConjugue2.Value,
-                DataNascimentoMae = dtNascimentoMaeConjugue2.Value
-            };
-
-        private void LimparForm()
+        private async void btnAtualizar_Click_1(object sender, EventArgs e)
         {
-            dtNascimentoPaiConjugue1.Value = DateTime.Today;
-            dtNascimentoMaeConjugue1.Value = DateTime.Today;
-            dtNascimentoPaiConjugue2.Value = DateTime.Today;
-            dtNascimentoMaeConjugue2.Value = DateTime.Today;
-            dtDataCasamento.Value = DateTime.Today;
-            dtDataRegistro.Value = DateTime.Today;
+            try
+            {
+                if (_casamentoSelecionado == null) return;
 
-            txtNomeConjugue2.Clear();
-            txtCpfConjugue2.Clear();
-            txtNomePaiConjugue2.Clear();
-            txtCpfPaiConjugue2.Clear();
-            txtNomeMaeConjugue2.Clear();
-            txtCpfMaeConjugue2.Clear();
+                _casamentoSelecionado.DataCasamento = dtDataCasamento.Value.Date;
+                _casamentoSelecionado.DataRegistro = dtDataRegistro.Value.Date;
 
-            txtNomeConjugue1.Clear();
-            txtCpfConjugue1.Clear();
-            txtNomePaiConjugue1.Clear();
-            txtCpfPaiConjugue1.Clear();
-            txtNomeMaeConjugue1.Clear();
-            txtCpfMaeConjugue1.Clear();
+                var conjuge1 = ObterConjuge1();
+                var conjuge2 = ObterConjuge2();
 
-            listViewResultados.Items.Clear();
+                conjuge1.Id = _casamentoSelecionado.IdConjuge1;
+                conjuge2.Id = _casamentoSelecionado.IdConjuge2;
 
-            _casamentoSelecionado = null;
-            _conjugue1 = null;
-            _conjugue2 = null;
-            AtualizarBotoes();
+                await _casamentoServico.AtualizarAsync(_casamentoSelecionado, conjuge1, conjuge2);
+                MessageBox.Show("Casamento atualizado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void listViewResultados_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void btnLimpar_Click(object sender, EventArgs e) => LimparForm();
+
+        private void listViewResultados_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewResultados.SelectedItems.Count > 0)
             {
                 var casamento = (Casamento)listViewResultados.SelectedItems[0].Tag;
                 _casamentoSelecionado = casamento;
 
-                txtNomeConjugue1.Text = casamento.Conjugue1.Nome;
-                txtCpfConjugue1.Text = casamento.Conjugue1.CPF;
-                txtNomePaiConjugue1.Text = casamento.Conjugue1.NomePai;
-                txtCpfPaiConjugue1.Text = casamento.Conjugue1.CpfnPai;
-                txtNomeMaeConjugue1.Text = casamento.Conjugue1.NomeMae;
-                txtCpfMaeConjugue1.Text = casamento.Conjugue1.CpfnMae;
-                dtNascimentoPaiConjugue1.Value = casamento.Conjugue1.DataNascimentoPai;
-                dtNascimentoMaeConjugue1.Value = casamento.Conjugue1.DataNascimentoMae;
+                txtNomeConjuge1.Text = casamento.Conjuge1.Nome;
+                txtCpfConjuge1.Text = casamento.Conjuge1.CPF;
+                txtNomePaiConjuge1.Text = casamento.Conjuge1.NomePai;
+                txtCpfPaiConjuge1.Text = casamento.Conjuge1.CpfnPai;
+                txtNomeMaeConjuge1.Text = casamento.Conjuge1.NomeMae;
+                txtCpfMaeConjuge1.Text = casamento.Conjuge1.CpfnMae;
+                dtNascimentoPaiConjuge1.Value = casamento.Conjuge1.DataNascimentoPai;
+                dtNascimentoMaeConjuge1.Value = casamento.Conjuge1.DataNascimentoMae;
 
-                txtNomeConjugue2.Text = casamento.Conjugue2.Nome;
-                txtCpfConjugue2.Text = casamento.Conjugue2.CPF;
-                txtNomePaiConjugue2.Text = casamento.Conjugue2.NomePai;
-                txtCpfPaiConjugue2.Text = casamento.Conjugue2.CpfnPai;
-                txtNomeMaeConjugue2.Text = casamento.Conjugue2.NomeMae;
-                txtCpfMaeConjugue2.Text = casamento.Conjugue2.CpfnMae;
-                dtNascimentoPaiConjugue2.Value = casamento.Conjugue2.DataNascimentoPai;
-                dtNascimentoMaeConjugue2.Value = casamento.Conjugue2.DataNascimentoMae;
+                txtNomeConjuge2.Text = casamento.Conjuge2.Nome;
+                txtCpfConjuge2.Text = casamento.Conjuge2.CPF;
+                txtNomePaiConjuge2.Text = casamento.Conjuge2.NomePai;
+                txtCpfPaiConjuge2.Text = casamento.Conjuge2.CpfnPai;
+                txtNomeMaeConjuge2.Text = casamento.Conjuge2.NomeMae;
+                txtCpfMaeConjuge2.Text = casamento.Conjuge2.CpfnMae;
+                dtNascimentoPaiConjuge2.Value = casamento.Conjuge2.DataNascimentoPai;
+                dtNascimentoMaeConjuge2.Value = casamento.Conjuge2.DataNascimentoMae;
 
                 dtDataCasamento.Value = casamento.DataCasamento;
                 dtDataRegistro.Value = casamento.DataRegistro;
                 AtualizarBotoes();
             }
         }
-
-        private void btnLimpar_Click_1(object sender, EventArgs e) => LimparForm();
-
     }
 }
 

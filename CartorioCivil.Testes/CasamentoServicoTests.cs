@@ -14,26 +14,26 @@ namespace CartorioCivil.Tests
     {
         private CasamentoServico _casamentoServico;
         private Mock<ICasamentoDAO> _mockCasamentoDAO;
-        private Mock<IConjugueDAO> _mockConjugueDAO;
+        private Mock<IConjugeDAO> _mockConjugeDAO;
 
         [SetUp]
         public void Setup()
         {
-            // Criando mocks do ICasamentoDAO e IConjugueDAO
+            // Criando mocks do ICasamentoDAO e IConjugeDAO
             _mockCasamentoDAO = new Mock<ICasamentoDAO>();
-            _mockConjugueDAO = new Mock<IConjugueDAO>();
+            _mockConjugeDAO = new Mock<IConjugeDAO>();
 
             // Inicializando o serviço com os mocks
-            _casamentoServico = new CasamentoServico(_mockCasamentoDAO.Object, _mockConjugueDAO.Object);
+            _casamentoServico = new CasamentoServico(_mockCasamentoDAO.Object, _mockConjugeDAO.Object);
         }
 
-        #region Testes para AdicionarAsync (Adição de Casamento e Conjugues)
+        #region Testes para AdicionarAsync (Adição de Casamento e Conjuges)
 
         [Test]
         public async Task AdicionarAsync_CasamentoValido_DeveAdicionarComSucesso()
         {
             // Arrange: Preparando os dados de entrada e mocks
-            var conjugue1 = new Conjugue
+            var conjuge1 = new Conjuge
             {
                 Nome = "Ana Silva",
                 CPF = "425.493.080-18", 
@@ -46,7 +46,7 @@ namespace CartorioCivil.Tests
             };
 
 
-            var conjugue2 = new Conjugue
+            var conjuge2 = new Conjuge
             {
                 Nome = "João Pereira",
                 CPF = "256.109.870-24", 
@@ -65,17 +65,17 @@ namespace CartorioCivil.Tests
                 DataCasamento = DateTime.Today.AddDays(-1)
             };
 
-            _mockConjugueDAO.Setup(dao => dao.AdicionarAsync(conjugue1)).ReturnsAsync(1);
-            _mockConjugueDAO.Setup(dao => dao.AdicionarAsync(conjugue2)).ReturnsAsync(2);
+            _mockConjugeDAO.Setup(dao => dao.AdicionarAsync(conjuge1)).ReturnsAsync(1);
+            _mockConjugeDAO.Setup(dao => dao.AdicionarAsync(conjuge2)).ReturnsAsync(2);
             _mockCasamentoDAO.Setup(dao => dao.AdicionarAsync(It.IsAny<Casamento>())).ReturnsAsync(1);
 
             // Act: Chamando o método que estamos testando
-            var resultado = await _casamentoServico.AdicionarAsync(casamento, conjugue1, conjugue2);
+            var resultado = await _casamentoServico.AdicionarAsync(casamento, conjuge1, conjuge2);
 
             // Assert: Verificando se o resultado é o esperado
             Assert.AreEqual(1, resultado); 
-            _mockConjugueDAO.Verify(dao => dao.AdicionarAsync(conjugue1), Times.Once);
-            _mockConjugueDAO.Verify(dao => dao.AdicionarAsync(conjugue2), Times.Once);
+            _mockConjugeDAO.Verify(dao => dao.AdicionarAsync(conjuge1), Times.Once);
+            _mockConjugeDAO.Verify(dao => dao.AdicionarAsync(conjuge2), Times.Once);
             _mockCasamentoDAO.Verify(dao => dao.AdicionarAsync(It.IsAny<Casamento>()), Times.Once);
         }
 
@@ -83,7 +83,7 @@ namespace CartorioCivil.Tests
         public void AdicionarAsync_CasamentoComErro_DeveLancarExcecao()
         {
             // Arrange: Preparando os dados de entrada com dados inválidos
-            var conjugue1 = new Conjugue
+            var conjuge1 = new Conjuge
             {
                 Id = 1,
                 Nome = "Ana Silva",
@@ -97,7 +97,7 @@ namespace CartorioCivil.Tests
             };
 
 
-            var conjugue2 = new Conjugue
+            var conjuge2 = new Conjuge
             {
                 Id = 2,
                 Nome = "João Pereira",
@@ -117,19 +117,19 @@ namespace CartorioCivil.Tests
             };
 
             // Act & Assert: Verificando se a exceção será lançada devido a data inválida
-            var ex = Assert.ThrowsAsync<ArgumentException>(async () => await _casamentoServico.AdicionarAsync(casamento, conjugue1, conjugue2));
+            var ex = Assert.ThrowsAsync<ArgumentException>(async () => await _casamentoServico.AdicionarAsync(casamento, conjuge1, conjuge2));
             Assert.That(ex.Message, Is.EqualTo("A data do casamento não pode ser no futuro."));
         }
 
         #endregion
 
-        #region Testes para ObterConjuguePorCpfAsync
+        #region Testes para ObterConjugePorCpfAsync
 
         [Test]
-        public async Task ObterConjuguePorCpfAsync_CpfValido_DeveRetornarConjugue()
+        public async Task ObterConjugePorCpfAsync_CpfValido_DeveRetornarConjuge()
         {
             // Arrange: Preparando os dados de entrada e mock
-            var conjugue = new Conjugue
+            var conjuge = new Conjuge
             {
                 Id = 1,
                 Nome = "Ana Silva",
@@ -142,45 +142,45 @@ namespace CartorioCivil.Tests
                 CpfnMae = "987.654.321-11"
             };
 
-            _mockConjugueDAO.Setup(dao => dao.ObterPorCpfAsync("425.493.080-18")).ReturnsAsync(conjugue);
+            _mockConjugeDAO.Setup(dao => dao.ObterPorCpfAsync("425.493.080-18")).ReturnsAsync(conjuge);
 
             // Act: Chamando o método que estamos testando
-            var resultado = await _casamentoServico.ObterConjuguePorCpfAsync("425.493.080-18");
+            var resultado = await _casamentoServico.ObterConjugePorCpfAsync("425.493.080-18");
 
             Assert.AreEqual("Ana Silva", resultado.Nome); 
             Assert.AreEqual("425.493.080-18", resultado.CPF); 
         }
 
         [Test]
-        public void ObterConjuguePorCpfAsync_CpfInvalido_DeveLancarExcecao()
+        public void ObterConjugePorCpfAsync_CpfInvalido_DeveLancarExcecao()
         {
             // Arrange: CPF inválido
             var cpfInvalido = "123.456.789-00";
 
             // Act & Assert
-            var ex = Assert.ThrowsAsync<ArgumentException>(async () => await _casamentoServico.ObterConjuguePorCpfAsync(cpfInvalido));
+            var ex = Assert.ThrowsAsync<ArgumentException>(async () => await _casamentoServico.ObterConjugePorCpfAsync(cpfInvalido));
             Assert.That(ex.Message, Is.EqualTo("O CPF fornecido é inválido."));
         }
 
         #endregion
 
-        #region Testes para ObterConjuguePorNomeAsync
+        #region Testes para ObterConjugePorNomeAsync
 
         [Test]
-        public async Task ObterConjuguePorNomeAsync_ConjugueExistente_DeveRetornarConjugue()
+        public async Task ObterConjugePorNomeAsync_ConjugeExistente_DeveRetornarConjuge()
         {
             // Arrange: Preparando os dados de entrada e mock
-            var conjugue = new Conjugue
+            var conjuge = new Conjuge
             {
                 Id = 1,
                 Nome = "Ana Silva",
                 CPF = "425.493.080-18" 
             };
 
-            _mockConjugueDAO.Setup(dao => dao.ObterPorNomeAsync("Ana Silva")).ReturnsAsync(new List<Conjugue> { conjugue });
+            _mockConjugeDAO.Setup(dao => dao.ObterPorNomeAsync("Ana Silva")).ReturnsAsync(new List<Conjuge> { conjuge });
 
             // Act: Chamando o método que estamos testando
-            var resultado = await _casamentoServico.ObterConjuguePorNomeAsync("Ana Silva");
+            var resultado = await _casamentoServico.ObterConjugePorNomeAsync("Ana Silva");
 
             // Assert
             Assert.AreEqual(1, resultado.Count); 
@@ -188,29 +188,29 @@ namespace CartorioCivil.Tests
         }
 
         [Test]
-        public void ObterConjuguePorNomeAsync_NomeVazio_DeveLancarExcecao()
+        public void ObterConjugePorNomeAsync_NomeVazio_DeveLancarExcecao()
         {
             // Act & Assert: Verificando se a exceção será lançada
-            var ex = Assert.ThrowsAsync<ArgumentException>(async () => await _casamentoServico.ObterConjuguePorNomeAsync(""));
+            var ex = Assert.ThrowsAsync<ArgumentException>(async () => await _casamentoServico.ObterConjugePorNomeAsync(""));
             Assert.That(ex.Message, Is.EqualTo("O nome do cônjuge não pode ser vazio."));
         }
 
         [Test]
-        public void ObterConjuguePorNomeAsync_ConjugueNaoEncontrado_DeveLancarExcecao()
+        public void ObterConjugePorNomeAsync_ConjugeNaoEncontrado_DeveLancarExcecao()
         {
             // Arrange
             var mockCasamentoDAO = new Mock<ICasamentoDAO>();
-            var mockConjugueDAO = new Mock<IConjugueDAO>();
+            var mockConjugeDAO = new Mock<IConjugeDAO>();
 
-            mockConjugueDAO
+            mockConjugeDAO
                 .Setup(dao => dao.ObterPorNomeAsync("Ana Silva"))
-                .ReturnsAsync((List<Conjugue>)null); 
+                .ReturnsAsync((List<Conjuge>)null); 
 
-            var casamentoServico = new CasamentoServico(mockCasamentoDAO.Object, mockConjugueDAO.Object);
+            var casamentoServico = new CasamentoServico(mockCasamentoDAO.Object, mockConjugeDAO.Object);
 
             // Act & Assert
             var ex = Assert.ThrowsAsync<ArgumentException>(async () =>
-                await casamentoServico.ObterConjuguePorNomeAsync("Ana Silva"));
+                await casamentoServico.ObterConjugePorNomeAsync("Ana Silva"));
 
             Assert.That(ex.Message, Is.EqualTo("Cônjuge não encontrado."));
         }

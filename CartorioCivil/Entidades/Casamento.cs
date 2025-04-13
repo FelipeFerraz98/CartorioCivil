@@ -7,10 +7,10 @@ namespace CartorioCivil.Entidades
         public int Id { get; set; }
         public DateTime DataRegistro { get; set; }
         public DateTime DataCasamento { get; set; }
-        public int IdConjugue1 { get; set; }
-        public Conjugue Conjugue1 { get; set; }
+        public int IdConjuge1 { get; set; }
+        public Conjuge Conjuge1 { get; set; }
 
-        public int IdConjugue2 { get; set; }
-        public Conjugue Conjugue2 { get; set; }
+        public int IdConjuge2 { get; set; }
+        public Conjuge Conjuge2 { get; set; }
     }
 }

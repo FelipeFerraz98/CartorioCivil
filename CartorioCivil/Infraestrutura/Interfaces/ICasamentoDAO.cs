@@ -5,6 +5,6 @@ namespace CartorioCivil.Infraestrutura.Interfaces
 {
     public interface ICasamentoDAO : IRegistroDAO<Casamento>
     {
-        Task<Casamento> ObterPorIdConjugueAsync(int idConjugue);
+        Task<Casamento> ObterPorIdConjugeAsync(int idConjuge);
     }
 }
