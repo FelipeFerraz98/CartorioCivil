@@ -170,5 +170,10 @@ namespace CartorioCivil.Apresentacao.Forms
         }
 
         private void btnLimpar_Click_1(object sender, EventArgs e) => LimparForm();
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

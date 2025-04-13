@@ -103,9 +103,29 @@ namespace CartorioCivil.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Inicio {
+            get {
+                object obj = ResourceManager.GetObject("Inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Limpar {
             get {
                 object obj = ResourceManager.GetObject("Limpar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Redirecionar {
+            get {
+                object obj = ResourceManager.GetObject("Redirecionar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -14,7 +14,7 @@ namespace CartorioCivil
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormObito());
+            Application.Run(new FormInicio());
         }
     }
 }

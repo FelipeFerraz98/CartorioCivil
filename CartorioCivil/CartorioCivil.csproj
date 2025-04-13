@@ -84,6 +84,12 @@
     <Compile Include="Apresentacao\Forms\FormCasamento.Designer.cs">
       <DependentUpon>FormCasamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Apresentacao\Forms\FormInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Apresentacao\Forms\FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Apresentacao\Forms\FormNascimento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +108,12 @@
     <Compile Include="Entidades\Obito.cs" />
     <Compile Include="Infraestrutura\BancoDeDados\ConexaoDB.cs" />
     <Compile Include="Infraestrutura\Interfaces\ICasamentoDAO.cs" />
-    <Compile Include="Infraestrutura\Interfaces\IConjugueDAO.cs" />
+    <Compile Include="Infraestrutura\Interfaces\IConjugeDAO.cs" />
     <Compile Include="Infraestrutura\Interfaces\INascimentoDAO.cs" />
     <Compile Include="Infraestrutura\Interfaces\IObitoDAO.cs" />
     <Compile Include="Infraestrutura\Interfaces\IRegistroDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\CasamentoDAO.cs" />
-    <Compile Include="Infraestrutura\RegistrosDAO\ConjugueDAO.cs" />
+    <Compile Include="Infraestrutura\RegistrosDAO\ConjugeDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\NascimentoDAO.cs" />
     <Compile Include="Infraestrutura\RegistrosDAO\ObitoDAO.cs" />
     <Compile Include="Negocios\Servicos\CasamentoServico.cs" />
@@ -120,6 +126,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Apresentacao\Forms\FormCasamento.resx">
       <DependentUpon>FormCasamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Apresentacao\Forms\FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Apresentacao\Forms\FormNascimento.resx">
       <DependentUpon>FormNascimento.cs</DependentUpon>
@@ -169,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Apresentacao\Resources\Limpar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apresentacao\Resources\Redirecionar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apresentacao\Resources\Inicio.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

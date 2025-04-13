@@ -166,5 +166,10 @@ namespace CartorioCivil.Apresentacao.Forms
                 AtualizarBotoes();
             }
         }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
