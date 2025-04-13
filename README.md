@@ -65,14 +65,25 @@ Veja mais em:
 
 ---
 
+### Relatórios
+
+A geração de relatórios é feita por meio da classe `RelNascimento`, localizada no diretório `Negocios/Relatorios`.  
+Ela retorna os dados formatados em um `DataTable`, prontos para serem utilizados no componente `ReportViewer`.
+
+O formulário `FormRelNascimento` exibe visualmente o conteúdo do relatório `.rdlc` (`RelNascimento.rdlc`) com base nos dados retornados pelo serviço.  
+O usuário pode gerar o relatório informando um **período de datas de nascimento**.
+
+Veja mais em:  
+- [`Negocios/Relatorios/README.md`](CartorioCivil/Negocios/Relatorios/README.md)
+
+---
+
 ### Testes Automatizados
 
 Os testes utilizam **NUnit** e **Moq** para garantir o correto funcionamento dos serviços de negócio com cobertura de cenários válidos e inválidos.
 
 Veja os testes em:  
 - [`CartorioCivil.Testes/README.md`](CartorioCivil.Testes/)
-
----
 
 ## Como Executar o Projeto
 
@@ -96,3 +107,4 @@ Veja os testes em:
 | **NUnit**                     | Testes automatizados                         |
 | **Moq**                       | Mock de interfaces nos testes                |
 | **System.Configuration**      | Leitura de `App.config`                      |
+| **Microsoft Report Viewer**   | Exibição visual de relatórios (`ReportViewer`)   |
