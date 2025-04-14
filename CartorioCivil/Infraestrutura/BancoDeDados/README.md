@@ -13,12 +13,12 @@ A classe `ConexaoDB` abstrai o gerenciamento de conexões com o banco PostgreSQL
 
 ## Configuração da Conexão
 
-A string de conexão utilizada pela classe `ConexaoDB` é lida do arquivo `App.config` da aplicação, através da chave:
+A string de conexão utilizada pela classe `ConexaoDB` é lida do arquivo `App.config` da aplicação, altere conforme a sua necessidade através da chave:
 
 ```xml
 <connectionStrings>
 	<add name="PostgreSQLConexao"
-		 connectionString="Host=localhost;Username=postgres;Password=root;Database=postgres"
+		 connectionString="Host=localhost;Username=postgres;Password=root;Database=cartoriocivil"
 		 providerName="Npgsql" />
 </connectionStrings>
 ```
